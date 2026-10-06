@@ -9,13 +9,31 @@ export type ServiceId =
   | 'partypic'
   | 'osos-teddy';
 
+export type ServiceImageSource = {
+  srcSet: string;
+  type?: string;
+  media?: string;
+  sizes?: string;
+};
+
+export type ServiceImage = {
+  src: string;
+  srcSet?: string;
+  sizes?: string;
+  sources?: readonly ServiceImageSource[];
+  alt: string;
+  objectPosition?: string;
+  width?: number;
+  height?: number;
+};
+
 export type Service = {
   id: ServiceId;
   slug: ServiceId;
   name: string;
-  shortDescription?: string;
+  shortDescription: string;
   description?: string;
-  image?: string;
+  image?: ServiceImage;
   icon?: string;
   featured?: boolean;
 };
