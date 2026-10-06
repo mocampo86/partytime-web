@@ -14,6 +14,8 @@ const navigationItems: readonly NavigationItem[] = [
 ];
 
 export function SiteHeader() {
+  const isLandingPage = window.location.pathname === '/';
+  const landingHref = (anchor: string) => (isLandingPage ? anchor : `/${anchor}`);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -38,7 +40,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <a className="site-brand" href="#inicio" onClick={closeMenu}>
+        <a className="site-brand" href={landingHref('#inicio')} onClick={closeMenu}>
           <img
             className="site-brand__logo"
             src={partyTimeLogo}
@@ -72,7 +74,11 @@ export function SiteHeader() {
             {navigationItems.map((item) => (
               <li key={item.label}>
                 {item.href ? (
-                  <a className="site-nav__link" href={item.href} onClick={closeMenu}>
+                  <a
+                    className="site-nav__link"
+                    href={landingHref(item.href)}
+                    onClick={closeMenu}
+                  >
                     {item.label}
                   </a>
                 ) : (

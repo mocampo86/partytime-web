@@ -58,13 +58,26 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           {service.name}
         </h3>
         <p className="service-card__description">{service.shortDescription}</p>
-        <span className="service-card__cta">
-          <span className="service-card__cta-text">Conocer más</span>
-          <span className="service-card__cta-icon" aria-hidden="true">
-            →
+        {service.detailPath ? (
+          <a
+            className="service-card__cta service-card__cta-link"
+            href={service.detailPath}
+            aria-label={`Conocer más sobre ${service.name}`}
+          >
+            <span className="service-card__cta-text">Conocer más</span>
+            <span className="service-card__cta-icon" aria-hidden="true">
+              →
+            </span>
+          </a>
+        ) : (
+          <span className="service-card__cta">
+            <span className="service-card__cta-text">Conocer más</span>
+            <span className="service-card__cta-icon" aria-hidden="true">
+              →
+            </span>
+            <span className="service-card__cta-status">Próximamente</span>
           </span>
-          <span className="service-card__cta-status">Próximamente</span>
-        </span>
+        )}
       </div>
     </article>
   );

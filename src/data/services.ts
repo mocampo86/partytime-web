@@ -55,6 +55,7 @@ export const services: readonly Service[] = [
     name: 'Espejo Mágico',
     shortDescription:
       'Fotos, diversión e interacción en una experiencia diferente para compartir con todos tus invitados.',
+    detailPath: '/servicios/espejo-magico',
     image: {
       src: espejoMagicoImage,
       alt: 'Dos personas posando con accesorios frente a una cortina metálica azul y violeta durante una experiencia de Espejo Mágico.',
@@ -68,6 +69,7 @@ export const services: readonly Service[] = [
     name: 'Cabina Boomerang',
     shortDescription:
       'Creá videos divertidos y espontáneos para llevarte un recuerdo diferente de tu evento.',
+    detailPath: '/servicios/cabina-boomerang',
     image: {
       src: cabinaBoomerangImage,
       alt: 'Mujer posando con anteojos frente a una cortina metálica azul y magenta durante una experiencia de Cabina Boomerang.',
