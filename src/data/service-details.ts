@@ -6,11 +6,15 @@ import partycubeBodaAccesoriosImage from '../assets/service-details/partycube/pa
 import partycubeInvitadosCotillonImage from '../assets/service-details/partycube/partycube-invitados-cotillon.jpg';
 import partycubeInvitadosSombrerosImage from '../assets/service-details/partycube/partycube-invitados-sombreros.jpg';
 import partycubeTiraInteligenteImage from '../assets/service-details/partycube/partycube-tira-inteligente.png';
+import partyrbotEscenarioInvitadosImage from '../assets/service-details/partyrbot/partyrbot-escenario-invitados.jpg';
+import partyrbotFuegosFriosImage from '../assets/service-details/partyrbot/partyrbot-fuegos-frios.jpg';
+import partyrbotInteraccionInvitadosImage from '../assets/service-details/partyrbot/partyrbot-interaccion-invitados.jpg';
 import type { Service, ServiceDetail } from '../types/service';
 import { services } from './services';
 
 const espejoMagico = services.find((service) => service.id === 'espejo-magico')!;
 const cabinaBoomerang = services.find((service) => service.id === 'cabina-boomerang')!;
+const robotLed = services.find((service) => service.id === 'robot-led')!;
 
 export const serviceDetails: readonly ServiceDetail[] = [
   {
@@ -228,6 +232,128 @@ export const serviceDetails: readonly ServiceDetail[] = [
       openGraphDescription:
         'Una cabina interactiva con boomerangs, impresiones personalizadas, QR y recuerdos para compartir al instante.',
       openGraphImage: cabinaBoomerang.image.src,
+    },
+  },
+  {
+    serviceId: 'robot-led',
+    displayName: 'PartyRobot',
+    hero: {
+      eyebrow: 'SHOW ROBOT LED',
+      headline: 'El impacto que tu evento necesita',
+      description: [
+        'Imaginá esto: las luces se apagan, el ritmo invade el ambiente y una figura futurista de más de 2 metros, cubierta de luces LED, irrumpe en la pista.',
+        'No es solo un baile. Es un espectáculo audiovisual de alta energía creado para transformar un momento de tu fiesta en una experiencia que sorprende a todos.',
+      ],
+      statement: 'Luces. Música. Energía. Y un show imposible de ignorar.',
+      image: {
+        ...robotLed.image,
+        objectPosition: 'right center',
+      },
+      ctaLabel: 'Consultar disponibilidad',
+    },
+    editorial: {
+      title: 'Cuando PartyRobot entra en escena',
+      paragraphs: [
+        'PartyRobot combina coreografía, tecnología LED e interacción con los invitados para crear uno de los momentos de mayor energía de la celebración.',
+        'El Robot LED entra en la pista y pasa a formar parte de la fiesta: baila, interactúa con los invitados y convierte el espacio en un verdadero espectáculo.',
+      ],
+      image: {
+        src: partyrbotEscenarioInvitadosImage,
+        alt: 'Invitados filmando y celebrando alrededor de PartyRobot frente a una pantalla iluminada con su nombre.',
+        width: 768,
+        height: 1024,
+        objectPosition: 'center 35%',
+      },
+    },
+    benefits: {
+      title: '¿Por qué elegir nuestro Show Robot LED?',
+      items: [
+        {
+          title: 'Alto impacto visual',
+          description:
+            'Una figura de más de 2 metros iluminada con tecnología LED transforma inmediatamente la pista y genera el efecto WOW.',
+        },
+        {
+          title: 'Experiencia 360°',
+          description:
+            'No es un show para mirar desde lejos. PartyRobot interactúa directamente con los invitados y los hace parte del espectáculo.',
+        },
+        {
+          title: 'Profesionalismo total',
+          description:
+            'Equipo técnico especializado, música editada y una puesta en escena preparada para que el show tenga el impacto esperado.',
+        },
+        {
+          title: 'Un momento para recordar',
+          description:
+            'Un espectáculo pensado para convertirse en uno de esos momentos que los invitados filman, comparten y siguen comentando después de la fiesta.',
+        },
+      ],
+    },
+    includesTitle: 'El show incluye',
+    includes: [
+      'Robot LED gigante de más de 2 metros',
+      'Show con coreografía y música',
+      'Interacción directa con los invitados',
+      'Efecto especial de fuegos fríos para el cierre',
+    ],
+    differentials: [
+      {
+        label: 'El gran cierre',
+        title: 'Un cierre a pura energía',
+        highlight: 'El final que convierte el show en un verdadero espectáculo.',
+        paragraphs: [
+          'Cuando parece que el show llegó a su punto máximo, llega el cierre: PartyRobot y el efecto de fuegos fríos crean una escena final pensada para sorprender a todos.',
+        ],
+        image: {
+          src: partyrbotFuegosFriosImage,
+          alt: 'PartyRobot iluminado junto a invitados mientras un efecto de fuegos fríos cierra el show.',
+          width: 768,
+          height: 1024,
+          objectPosition: 'center',
+        },
+        featured: true,
+      },
+    ],
+    gallery: [
+      {
+        src: partyrbotFuegosFriosImage,
+        alt: 'PartyRobot de cuerpo completo junto a invitados durante el cierre con fuegos fríos.',
+        width: 768,
+        height: 1024,
+        objectPosition: 'center',
+      },
+      {
+        src: partyrbotInteraccionInvitadosImage,
+        alt: 'PartyRobot iluminado interactuando con invitados durante una celebración.',
+        width: 935,
+        height: 1024,
+        objectPosition: 'center 15%',
+      },
+      {
+        src: partyrbotEscenarioInvitadosImage,
+        alt: 'Invitados celebrando alrededor de PartyRobot frente a una pantalla con el logo del show.',
+        width: 768,
+        height: 1024,
+        objectPosition: 'center 35%',
+      },
+    ],
+    contactCta: {
+      title: '¿Listos para encender la fiesta?',
+      description:
+        'Llevá PartyRobot a tu evento y sorprendé a tus invitados con un show de luces, música y energía.',
+      label: 'Consultar por WhatsApp',
+      message:
+        'Hola PartyTime 👋 Estoy interesado/a en el Show Robot LED y quisiera consultar disponibilidad.',
+    },
+    seo: {
+      title: 'PartyRobot / Show Robot LED para eventos | PartyTime Uruguay',
+      description:
+        'Show Robot LED con figura gigante iluminada, coreografía, música, interacción y cierre con efecto de fuegos fríos para eventos.',
+      openGraphTitle: 'PartyRobot / Show Robot LED | PartyTime Uruguay',
+      openGraphDescription:
+        'Un espectáculo audiovisual de alta energía con robot LED gigante e interacción con invitados.',
+      openGraphImage: robotLed.image.src,
     },
   },
 ];

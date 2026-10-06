@@ -55,6 +55,17 @@ export type ServiceDetailHero = {
 export type ServiceEditorialSection = {
   title: string;
   paragraphs: readonly string[];
+  image?: ServiceImage;
+};
+
+export type ServiceBenefit = {
+  title: string;
+  description: string;
+};
+
+export type ServiceBenefitsSection = {
+  title: string;
+  items: readonly ServiceBenefit[];
 };
 
 export type ServiceProcessStep = {
@@ -99,6 +110,7 @@ export type ServiceDetail = {
   hero: ServiceDetailHero;
   editorial?: ServiceEditorialSection;
   process?: ServiceProcess;
+  benefits?: ServiceBenefitsSection;
   includesTitle?: string;
   includes: readonly string[];
   differentials?: readonly ServiceDifferential[];

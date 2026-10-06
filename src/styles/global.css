@@ -1173,6 +1173,62 @@ a {
   margin-top: 1rem;
 }
 
+.service-description__media {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: var(--border-subtle);
+  border-radius: var(--radius-large);
+  background: var(--color-surface-elevated);
+  box-shadow: var(--shadow-soft);
+}
+
+.service-description__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.service-benefits {
+  position: relative;
+}
+
+.service-benefits__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-benefits__item {
+  padding: 1.375rem;
+}
+
+.service-benefits__item::before {
+  right: 1.25rem;
+  left: 1.25rem;
+}
+
+.service-benefits__title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.service-benefits__description {
+  margin: 0.875rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
 .service-process {
   position: relative;
 }
@@ -1360,6 +1416,10 @@ a {
   border-radius: var(--radius-medium);
   background: rgb(var(--color-background-rgb) / 52%);
   box-shadow: var(--shadow-soft);
+}
+
+.service-differential--featured:not(.service-differential--wide-media) .service-differential__media {
+  width: min(100%, 18rem);
 }
 
 .service-differential--wide-media .service-differential__media {
@@ -1838,12 +1898,18 @@ a {
     grid-column: 1 / -1;
   }
 
-  .service-description__inner {
+  .service-description__inner--with-media {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
     gap: clamp(2rem, 6vw, 5rem);
   }
 
   .service-includes__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .service-benefits__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   }
@@ -1928,6 +1994,10 @@ a {
 
   .service-detail-hero__highlights {
     max-width: 46rem;
+  }
+
+  .service-benefits__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .service-gallery__grid {

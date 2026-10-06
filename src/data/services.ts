@@ -97,6 +97,7 @@ export const services: readonly Service[] = [
     name: 'Robot LED',
     shortDescription:
       'Luces, música y energía para sorprender a tus invitados y transformar la pista de baile.',
+    detailPath: '/servicios/robot-led',
     image: {
       src: robotLedImage,
       alt: 'Robot LED interactuando con invitados en una pista de baile iluminada con efectos de chispas.',

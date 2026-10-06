@@ -132,7 +132,7 @@ A real photo of a personalized envelope alongside the printed strip has not been
 
 `/servicios/cabina-boomerang`
 
-The landing card now uses the existing semantic stretched-link pattern. Espejo Mágico and Cabina Boomerang are the two currently linked service cards; the other seven remain `Próximamente`.
+The landing card uses the existing semantic stretched-link pattern. PartyRobot later added `/servicios/robot-led` through the same mechanism; services without detail records remain `Próximamente`.
 
 ## Metadata
 
@@ -166,7 +166,7 @@ Completed against the production preview:
 - `/servicios/espejo-magico` still renders the expected Espejo Mágico page with eight includes, two differentials and three gallery images.
 - `/servicios/no-existe` renders the branded Not Found page.
 - The Cabina Boomerang landing card navigates to `/servicios/cabina-boomerang`.
-- The two existing service links are Espejo Mágico and Cabina Boomerang; the other seven cards remain noninteractive.
+- Espejo Mágico, Cabina Boomerang and Robot LED are the three currently linked service cards; the other six remain noninteractive.
 - PartyCube title and meta description apply client-side.
 - The hero image loads eagerly and successfully.
 - `Así funciona la magia` renders the five expected process steps.
@@ -196,4 +196,4 @@ Completed against the production preview:
 - Official WhatsApp/contact destination and active CTA links.
 - Approved personalized-envelope imagery for `Sobres personalizados`, if desired.
 - Optional gallery lightbox.
-- Detail pages for the remaining seven PartyTime services.
+- Detail pages for the remaining six PartyTime services.

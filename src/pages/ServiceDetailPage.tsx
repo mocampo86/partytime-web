@@ -1,3 +1,5 @@
+import { ResponsiveImage } from '../components/ResponsiveImage';
+import { ServiceBenefits } from '../components/service-detail/ServiceBenefits';
 import { ServiceContactCta } from '../components/service-detail/ServiceContactCta';
 import { ServiceDetailHero } from '../components/service-detail/ServiceDetailHero';
 import { ServiceDifferentials } from '../components/service-detail/ServiceDifferentials';
@@ -22,16 +24,34 @@ export function ServiceDetailPage({ detail }: ServiceDetailPageProps) {
           className="site-section service-description"
           aria-labelledby="service-description-title"
         >
-          <div className="service-description__inner">
-            <h2 id="service-description-title">{detail.editorial.title}</h2>
-            <div className="service-description__copy">
-              {detail.editorial.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+          <div
+            className={`service-description__inner${
+              detail.editorial.image ? ' service-description__inner--with-media' : ''
+            }`}
+          >
+            <div>
+              <h2 id="service-description-title">{detail.editorial.title}</h2>
+              <div className="service-description__copy">
+                {detail.editorial.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </div>
+            {detail.editorial.image ? (
+              <figure className="service-description__media">
+                <ResponsiveImage
+                  image={detail.editorial.image}
+                  className="service-description__image"
+                  loading="lazy"
+                  fetchPriority="low"
+                />
+              </figure>
+            ) : null}
           </div>
         </section>
       ) : null}
+
+      {detail.benefits ? <ServiceBenefits benefits={detail.benefits} /> : null}
 
       <ServiceIncludes title={detail.includesTitle} includes={detail.includes} />
       {detail.differentials?.length ? (

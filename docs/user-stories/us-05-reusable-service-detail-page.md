@@ -20,8 +20,9 @@ The first real implementation is Espejo Mágico at `/servicios/espejo-magico`. F
 - Dynamic service route resolution by slug.
 - Reuse of the existing `SiteLayout`, `SiteHeader`, main area, footer and brand system.
 - Service hero with a real service image, overlay, eyebrow, headline, optional subtitle, multi-paragraph introduction, optional visual statement, highlights and contact CTA placeholder.
-- Optional editorial description section for future services.
+- Optional editorial description section for future services, including optional supporting media.
 - Optional reusable process section.
+- Optional reusable benefit-card section.
 - Data-driven benefits list with a configurable heading.
 - Reusable service differential blocks.
 - Reusable photo gallery supporting up to three real images.
@@ -102,8 +103,9 @@ The service-specific contact message is stored in data for future use when the o
 `src/types/service.ts` extends the existing service contract with detail-specific structures:
 
 - `ServiceDetailHero`
-- `ServiceEditorialSection`, optional for services that need a separate editorial block
+- `ServiceEditorialSection`, optional for services that need a separate editorial block and optional supporting media
 - `ServiceProcessStep` and `ServiceProcess`, optional for services that need a process section
+- `ServiceBenefit` and `ServiceBenefitsSection`, optional for services that need titled benefit cards
 - `ServiceDifferential`, reusable for benefit/differentiator blocks with optional supporting media
 - `ServiceContactCta`
 - `ServiceSeo`
@@ -143,7 +145,7 @@ Each configured service detail receives its own title, description and Open Grap
 
 ### Landing integration
 
-`Service` supports an optional `detailPath`. Espejo Mágico was the first linked route; PartyCube later added `/servicios/cabina-boomerang` through the same data-driven mechanism.
+`Service` supports an optional `detailPath`. Espejo Mágico was the first linked route; PartyCube and PartyRobot later added `/servicios/cabina-boomerang` and `/servicios/robot-led` through the same data-driven mechanism.
 
 For linked services, `ServiceCard` renders a semantic anchor and a stretched hit area across the card. Services without detail pages keep the existing noninteractive `Próximamente` CTA and are not focusable fake links.
 
@@ -230,7 +232,7 @@ Completed for the Espejo Mágico pilot with the production build and CDP browser
 - `/servicios/espejo-magico` renders the reusable detail page.
 - `/servicios/does-not-exist` renders the branded Not Found page, not a partial service page.
 - The Espejo Mágico card navigated to `/servicios/espejo-magico` in the pilot verification.
-- PartyCube later added a second active card link through the same mechanism; services without detail records remain noninteractive with `Próximamente`.
+- PartyCube and PartyRobot later added active card links through the same mechanism; services without detail records remain noninteractive with `Próximamente`.
 - Header links resolve to `/#inicio` and `/#servicios` outside the landing page.
 - Client-side title, description, Open Graph title/description and Open Graph image update for Espejo Mágico.
 - Hero image loads eagerly with high priority.
@@ -250,7 +252,7 @@ To add another service detail page:
 1. Add approved assets.
 2. Add a `ServiceDetail` record in `src/data/service-details.ts`.
 3. Add the service's `detailPath` in `src/data/services.ts`.
-4. Supply hero, optional editorial, inclusions, differentials, gallery, CTA and SEO content.
+4. Supply hero, optional editorial/process/benefits, inclusions, differentials, gallery, CTA and SEO content.
 
 No service-specific React page should be needed.
 
