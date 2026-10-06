@@ -1711,6 +1711,38 @@ a {
   }
 }
 
+@media (max-width: 40rem) {
+  .hero__inner {
+    padding-block: 2.75rem 2.5rem;
+    gap: 2rem;
+  }
+
+  .hero__media {
+    display: none;
+  }
+
+  .whatsapp-cta {
+    right: max(0.875rem, env(safe-area-inset-right));
+    bottom: max(0.875rem, env(safe-area-inset-bottom));
+    min-width: 0;
+    min-height: 3.25rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .whatsapp-cta::before {
+    right: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .whatsapp-cta__service {
+    font-size: 0.8125rem;
+  }
+
+  .whatsapp-cta__status {
+    font-size: 0.6875rem;
+  }
+}
+
 @media (min-width: 48rem) {
   .site-brand__logo {
     height: 2.65rem;
