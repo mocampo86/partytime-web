@@ -1541,6 +1541,27 @@ a {
   object-fit: cover;
 }
 
+.service-gallery__grid--extended {
+  display: block;
+  column-gap: 1rem;
+}
+
+.service-gallery__grid--extended .service-gallery__item {
+  margin-block-end: 1rem;
+  break-inside: avoid;
+}
+
+.service-gallery__grid--extended .service-gallery__figure {
+  height: auto;
+  min-height: 0;
+}
+
+.service-gallery__grid--extended .service-gallery__figure > picture,
+.service-gallery__grid--extended .service-gallery__image {
+  position: static;
+  height: auto;
+}
+
 .service-contact__panel {
   position: relative;
   isolation: isolate;
@@ -1914,6 +1935,10 @@ a {
     gap: 1rem;
   }
 
+  .service-benefits__grid[data-count='3'] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .service-differentials__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
@@ -1952,6 +1977,10 @@ a {
 
   .service-gallery__grid[data-count='3'] .service-gallery__item:last-child {
     grid-column: 2;
+  }
+
+  .service-gallery__grid--extended {
+    columns: 2;
   }
 
   .service-contact__panel {
@@ -2002,6 +2031,10 @@ a {
 
   .service-gallery__grid {
     grid-template-rows: repeat(2, minmax(15.5rem, 1fr));
+  }
+
+  .service-gallery__grid--extended {
+    columns: 3;
   }
 }
 

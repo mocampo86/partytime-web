@@ -3,11 +3,15 @@ import type { ServiceDetail } from '../../types/service';
 
 type ServiceDifferentialsProps = {
   differentials: NonNullable<ServiceDetail['differentials']>;
+  ariaLabel?: string;
 };
 
-export function ServiceDifferentials({ differentials }: ServiceDifferentialsProps) {
+export function ServiceDifferentials({
+  differentials,
+  ariaLabel = 'Diferenciales del servicio',
+}: ServiceDifferentialsProps) {
   return (
-    <section className="site-section service-differentials" aria-label="Diferenciales del servicio">
+    <section className="site-section service-differentials" aria-label={ariaLabel}>
       <div className="service-differentials__grid">
         {differentials.map((differential) => {
           const isWideMedia =

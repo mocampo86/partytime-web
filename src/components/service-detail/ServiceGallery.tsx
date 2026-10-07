@@ -15,11 +15,13 @@ export function ServiceGallery({ serviceName, images }: ServiceGalleryProps) {
     <section className="site-section service-gallery" aria-labelledby="service-gallery-title">
       <h2 id="service-gallery-title">{serviceName} en acción</h2>
       <ul
-        className="service-gallery__grid"
-        data-count={Math.min(images.length, 3)}
+        className={`service-gallery__grid${
+          images.length > 3 ? ' service-gallery__grid--extended' : ''
+        }`}
+        data-count={images.length}
         aria-label={`Fotografías de ${serviceName}`}
       >
-        {images.slice(0, 3).map((image) => (
+        {images.map((image) => (
           <li className="service-gallery__item" key={image.src}>
             <figure className="service-gallery__figure">
               <ResponsiveImage

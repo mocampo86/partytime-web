@@ -111,6 +111,7 @@ export type ServiceDetail = {
   editorial?: ServiceEditorialSection;
   process?: ServiceProcess;
   benefits?: ServiceBenefitsSection;
+  story?: readonly ServiceDifferential[];
   includesTitle?: string;
   includes: readonly string[];
   differentials?: readonly ServiceDifferential[];

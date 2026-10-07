@@ -53,6 +53,13 @@ export function ServiceDetailPage({ detail }: ServiceDetailPageProps) {
 
       {detail.benefits ? <ServiceBenefits benefits={detail.benefits} /> : null}
 
+      {detail.story?.length ? (
+        <ServiceDifferentials
+          differentials={detail.story}
+          ariaLabel={`La historia de ${detail.displayName}`}
+        />
+      ) : null}
+
       <ServiceIncludes title={detail.includesTitle} includes={detail.includes} />
       {detail.differentials?.length ? (
         <ServiceDifferentials differentials={detail.differentials} />

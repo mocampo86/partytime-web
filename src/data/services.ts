@@ -16,6 +16,7 @@ export const services: readonly Service[] = [
     name: 'Fotografía',
     shortDescription:
       'Capturamos cada momento y emoción para que puedas revivir tu evento una y otra vez.',
+    detailPath: '/servicios/fotografia',
     image: {
       src: fotografiaImage,
       alt: 'Quinceañera con tiara junto a un arreglo floral durante una celebración con decoración violeta.',
