@@ -74,6 +74,7 @@ export type ServiceProcessStep = {
 };
 
 export type ServiceProcess = {
+  eyebrow?: string;
   title: string;
   paragraphs: readonly string[];
   steps: readonly ServiceProcessStep[];
@@ -90,6 +91,7 @@ export type ServiceDifferential = {
 };
 
 export type ServiceContactCta = {
+  eyebrow?: string;
   title: string;
   description: string;
   label: string;
@@ -104,6 +106,15 @@ export type ServiceSeo = {
   openGraphImage?: string;
 };
 
+export type ServiceDetailSection =
+  | 'process'
+  | 'editorial'
+  | 'benefits'
+  | 'story'
+  | 'includes'
+  | 'differentials'
+  | 'gallery';
+
 export type ServiceDetail = {
   serviceId: ServiceId;
   displayName: string;
@@ -113,9 +124,15 @@ export type ServiceDetail = {
   benefits?: ServiceBenefitsSection;
   story?: readonly ServiceDifferential[];
   includesTitle?: string;
+  includesEyebrow?: string;
+  includesVariant?: 'list' | 'tags';
   includes: readonly string[];
   differentials?: readonly ServiceDifferential[];
   gallery: readonly ServiceImage[];
+  galleryEyebrow?: string;
+  galleryTitle?: string;
   contactCta: ServiceContactCta;
+  sectionOrder?: readonly ServiceDetailSection[];
+  scrollReveal?: boolean;
   seo: ServiceSeo;
 };

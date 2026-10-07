@@ -9,6 +9,9 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
     <section className="site-section service-process" aria-labelledby="service-process-title">
       <div className="service-process__inner">
         <div className="service-process__header">
+          {process.eyebrow ? (
+            <p className="hero__eyebrow">{process.eyebrow}</p>
+          ) : null}
           <h2 id="service-process-title">{process.title}</h2>
           {process.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>

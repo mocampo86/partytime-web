@@ -575,6 +575,161 @@ export const serviceDetails: readonly ServiceDetail[] = [
       openGraphImage: fotografia.image.src,
     },
   },
+  {
+    serviceId: 'exteriores',
+    displayName: 'Exteriores',
+    hero: {
+      eyebrow: 'FOTOGRAFÍA EN EXTERIORES',
+      headline: 'Tu historia, al aire libre',
+      description: [
+        'Hay momentos que necesitan espacio, luz y libertad.',
+        'Creamos sesiones en exteriores donde el paisaje, la luz natural y tu personalidad se combinan para conseguir fotografías auténticas, espontáneas y llenas de vida.',
+      ],
+      image: {
+        src: '/images/services/exteriores/hero.jpg',
+        alt: 'Mujer con vestido blanco sentada sobre rocas durante una sesión de fotografía en exteriores al atardecer.',
+        width: 683,
+        height: 1024,
+        objectPosition: 'center 38%',
+      },
+      ctaLabel: 'Quiero mi sesión',
+    },
+    story: [
+      {
+        label: 'El lugar también cuenta',
+        title: 'Un escenario para tu historia',
+        paragraphs: [
+          'Una calle, un parque, el campo, la costa o simplemente ese lugar que significa algo especial para vos.',
+          'En una sesión exterior no buscamos solamente un fondo bonito. Usamos el entorno, la luz y el movimiento para construir imágenes que tengan personalidad.',
+          'Antes de cada sesión pensamos juntos la locación, el horario y el estilo que queremos conseguir.',
+          'Durante el shoot guiamos cada momento para que puedas disfrutar la experiencia sin preocuparte por cómo posar.',
+        ],
+        callout:
+          'No buscamos poses perfectas. Buscamos momentos que se sientan reales.',
+        image: {
+          src: '/images/services/exteriores/escenario.jpg',
+          alt: 'Mujer con vestido blanco junto a un carro de madera con ruedas antiguas en una locación rural al atardecer.',
+          width: 1024,
+          height: 683,
+          objectPosition: 'center',
+        },
+        featured: true,
+      },
+    ],
+    process: {
+      eyebrow: 'Una sesión pensada para vos',
+      title: 'Natural, pero dirigida',
+      paragraphs: [],
+      steps: [
+        {
+          title: 'La locación',
+          description:
+            'Elegimos juntos un lugar que acompañe la historia y la estética que queremos crear.',
+        },
+        {
+          title: 'La luz',
+          description:
+            'Planificamos el horario buscando las mejores condiciones de luz natural.',
+        },
+        {
+          title: 'El momento',
+          description:
+            'Durante la sesión te guiamos con movimientos y pequeñas indicaciones para conseguir fotografías naturales sin poses rígidas.',
+        },
+      ],
+    },
+    includesEyebrow: 'Ideal para',
+    includesTitle: 'Tu momento. Tu lugar.',
+    includesVariant: 'tags',
+    includes: [
+      '15 años',
+      'Parejas',
+      'Prebodas',
+      'Familias',
+      'Embarazo',
+      'Retratos',
+      'Sesiones personales',
+    ],
+    differentials: [
+      {
+        label: 'El momento justo',
+        title: 'La luz cambia todo',
+        paragraphs: [
+          'En exteriores cada momento del día cuenta una historia diferente.',
+          'La luz suave de la tarde, un contraluz, el cielo después del atardecer o las primeras luces de la ciudad pueden transformar completamente una fotografía.',
+          'Por eso cada sesión se planifica teniendo en cuenta la locación, la época del año y el resultado que queremos conseguir.',
+        ],
+        callout:
+          'La mejor fotografía empieza antes de disparar la cámara.',
+        image: {
+          src: '/images/services/exteriores/luz.jpg',
+          alt: 'Mujer apoyada sobre una mesa de madera entre dos faroles con velas encendidas, iluminada por luz cálida en una locación rústica.',
+          width: 1024,
+          height: 683,
+          objectPosition: 'center',
+        },
+        featured: true,
+      },
+    ],
+    gallery: [
+      {
+        src: '/images/services/exteriores/exterior-01.jpg',
+        alt: 'Mujer apoyada sobre una pared de roca junto al mar durante una sesión fotográfica en la costa.',
+        width: 1024,
+        height: 683,
+        objectPosition: 'center',
+      },
+      {
+        src: '/images/services/exteriores/exterior-02.jpg',
+        alt: 'Mujer con sombrero sonriendo apoyada sobre una superficie de madera rodeada de vegetación durante una sesión en exteriores.',
+        width: 1024,
+        height: 683,
+        objectPosition: 'center',
+      },
+      {
+        src: '/images/services/exteriores/exterior-03.jpg',
+        alt: 'Mujer con vestido blanco recostada sobre un sillón de mimbre en una galería rural con luz cálida.',
+        width: 1024,
+        height: 683,
+        objectPosition: 'center',
+      },
+      {
+        src: '/images/services/exteriores/exterior-04.jpg',
+        alt: 'Mujer con sombrero vaquero junto a una estructura de madera iluminada por luz cálida durante una sesión en exteriores.',
+        width: 1024,
+        height: 682,
+        objectPosition: 'center',
+      },
+    ],
+    galleryEyebrow: 'Historias reales',
+    galleryTitle: 'Cada lugar cambia la historia',
+    contactCta: {
+      eyebrow: 'Tu historia puede empezar acá',
+      title: 'Hay lugares que merecen convertirse en recuerdos',
+      description:
+        'Contanos qué tenés en mente y armamos juntos una sesión que se sienta realmente tuya.',
+      label: 'Planificar mi sesión',
+      message:
+        'Hola PartyTime 👋 Estoy interesado/a en una sesión de fotografía en exteriores y quisiera planificarla.',
+    },
+    sectionOrder: [
+      'story',
+      'process',
+      'gallery',
+      'differentials',
+      'includes',
+    ],
+    scrollReveal: true,
+    seo: {
+      title: 'Fotografía en Exteriores | PartyTime Uruguay',
+      description:
+        'Sesiones de fotografía en exteriores con luz natural, locaciones únicas y una mirada espontánea y profesional. Creamos imágenes que cuentan tu historia.',
+      openGraphTitle: 'Fotografía en Exteriores | PartyTime Uruguay',
+      openGraphDescription:
+        'Sesiones en exteriores donde el paisaje, la luz natural y tu personalidad crean imágenes auténticas y llenas de vida.',
+      openGraphImage: '/images/services/exteriores/hero.jpg',
+    },
+  },
 ];
 
 export type ServicePageData = {

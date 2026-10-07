@@ -43,6 +43,7 @@ export const services: readonly Service[] = [
     name: 'Exteriores',
     shortDescription:
       'Sesiones únicas en locaciones especiales, pensadas para reflejar tu personalidad y tu historia.',
+    detailPath: '/servicios/exteriores',
     image: {
       src: exterioresImage,
       alt: 'Mujer sentada sobre rocas durante una sesión fotográfica exterior al atardecer.',
