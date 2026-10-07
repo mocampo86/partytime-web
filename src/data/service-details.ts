@@ -1,22 +1,22 @@
+import bodasEventoImage from '../assets/event-types/bodas-evento.jpg';
+import espejoMagicoEventoImage from '../assets/services/espejo-magico-evento.jpg';
+import fotografiaQuinceaneraImage from '../assets/services/fotografia-quinceanera.jpg';
 import espejoMagicoAccesoriosImage from '../assets/service-details/espejo-magico/espejo-magico-accesorios.jpg';
 import espejoMagicoFirmaImage from '../assets/service-details/espejo-magico/espejo-magico-firma.jpg';
 import espejoMagicoInteraccionImage from '../assets/service-details/espejo-magico/espejo-magico-interaccion.jpg';
 import espejoMagicoTirasXxlImage from '../assets/service-details/espejo-magico/espejo-magico-tiras-xxl.png';
-import filmacionEventoImage from '../assets/services/filmacion-evento.jpg';
-import fotografiaAbuelaNietaImage from '../assets/service-details/fotografia/fotografia-abuela-nieta.jpg';
 import fotografiaAlasIridiscentesImage from '../assets/service-details/fotografia/fotografia-alas-iridiscentes.jpg';
 import fotografiaAlasPistaImage from '../assets/service-details/fotografia/fotografia-alas-pista.jpg';
 import fotografiaAmigasVaquerasImage from '../assets/service-details/fotografia/fotografia-amigas-vaqueras.jpg';
 import fotografiaAmigasVelaImage from '../assets/service-details/fotografia/fotografia-amigas-vela.jpg';
 import fotografiaAmigosBrindisImage from '../assets/service-details/fotografia/fotografia-amigos-brindis.jpg';
 import fotografiaBebeJardinImage from '../assets/service-details/fotografia/fotografia-bebe-jardin.jpg';
-import fotografiaBodaRamoImage from '../assets/service-details/fotografia/fotografia-boda-ramo.jpg';
 import fotografiaCumpleanos80VelasImage from '../assets/service-details/fotografia/fotografia-cumpleanos-80-velas.jpg';
-import fotografiaNinasAntifazImage from '../assets/service-details/fotografia/fotografia-ninas-antifaz.jpg';
 import fotografiaQuinceaneraCorredorImage from '../assets/service-details/fotografia/fotografia-quinceanera-corredor.jpg';
+import fotografiaRetratoNeonImage from '../assets/service-details/fotografia/fotografia-retrato-neon.jpg';
 import fotografiaRetratoVestidoRosaImage from '../assets/service-details/fotografia/fotografia-retrato-vestido-rosa.jpg';
 import fotografiaSoplandoVelasImage from '../assets/service-details/fotografia/fotografia-soplando-velas.jpg';
-import fotografiaValsPadreImage from '../assets/service-details/fotografia/fotografia-vals-padre.jpg';
+import fotografiaBodaCotillonImage from '../assets/service-details/fotografia/fotografia-boda-cotillon.jpg';
 import partycubeBodaAccesoriosImage from '../assets/service-details/partycube/partycube-boda-accesorios.jpg';
 import partycubeInvitadosCotillonImage from '../assets/service-details/partycube/partycube-invitados-cotillon.jpg';
 import partycubeInvitadosSombrerosImage from '../assets/service-details/partycube/partycube-invitados-sombreros.jpg';
@@ -27,8 +27,6 @@ import partyrbotInteraccionInvitadosImage from '../assets/service-details/partyr
 import type { Service, ServiceDetail } from '../types/service';
 import { services } from './services';
 
-const fotografia = services.find((service) => service.id === 'fotografia')!;
-const espejoMagico = services.find((service) => service.id === 'espejo-magico')!;
 const cabinaBoomerang = services.find((service) => service.id === 'cabina-boomerang')!;
 const robotLed = services.find((service) => service.id === 'robot-led')!;
 
@@ -44,7 +42,12 @@ export const serviceDetails: readonly ServiceDetail[] = [
         'Espejo Mágico es mucho más que una cabina de fotos: es una experiencia interactiva que suma diversión a tu evento, invita a todos a participar y captura esos momentos espontáneos que hacen única cada celebración.',
         'Fotos impresas al instante y listas para descargar en tu celular, para que cada invitado se lleve un recuerdo especial.',
       ],
-      image: espejoMagico.image,
+      image: {
+        src: espejoMagicoEventoImage,
+        alt: 'Dos personas posando con accesorios frente a una cortina metálica azul y violeta durante una experiencia de Espejo Mágico.',
+        width: 1024,
+        height: 706,
+      },
       highlights: [
         'Impresiones ilimitadas',
         'Descarga al celular',
@@ -125,7 +128,7 @@ export const serviceDetails: readonly ServiceDetail[] = [
       openGraphTitle: 'Espejo Mágico | PartyTime Uruguay',
       openGraphDescription:
         'Una experiencia interactiva con impresiones ilimitadas, descarga al celular y recuerdos personalizados para tu celebración.',
-      openGraphImage: espejoMagico.image.src,
+      openGraphImage: espejoMagicoEventoImage,
     },
   },
   {
@@ -402,8 +405,8 @@ export const serviceDetails: readonly ServiceDetail[] = [
         'Una mirada natural y cuidada para que, cuando vuelvas a ver las fotos, puedas volver a sentir ese momento.',
       ],
       image: {
-        src: filmacionEventoImage,
-        alt: 'Joven sonriendo con naturalidad durante una celebración iluminada con luces cálidas.',
+        src: fotografiaRetratoNeonImage,
+        alt: 'Quinceañera sonriendo apoyada sobre una mesa de vidrio frente a un cartel de neón durante una celebración.',
         width: 683,
         height: 1024,
         objectPosition: 'center',
@@ -455,10 +458,10 @@ export const serviceDetails: readonly ServiceDetail[] = [
           'Realizamos un trabajo profesional pensado para conservar la belleza, las personas y las emociones de este día en imágenes de alta calidad que puedan volver a disfrutarse con el paso del tiempo.',
         ],
         image: {
-          src: fotografiaValsPadreImage,
-          alt: 'Quinceañera riendo mientras baila el vals con su padre frente a los invitados.',
+          src: fotografiaBodaCotillonImage,
+          alt: 'Novia e invitados posando con sombreros de cotillón y collares hawaianos durante la fiesta.',
           width: 1024,
-          height: 682,
+          height: 683,
           objectPosition: 'center',
         },
         featured: true,
@@ -487,10 +490,10 @@ export const serviceDetails: readonly ServiceDetail[] = [
         objectPosition: 'center',
       },
       {
-        src: fotografiaBodaRamoImage,
-        alt: 'Novia con ramo de rosas blancas junto a una invitada sonriendo durante la fiesta.',
-        width: 1536,
-        height: 1024,
+        src: bodasEventoImage,
+        alt: 'Invitada besando en la mejilla a una novia que sostiene un ramo de rosas blancas durante la fiesta.',
+        width: 1024,
+        height: 682,
         objectPosition: 'center',
       },
       {
@@ -501,17 +504,10 @@ export const serviceDetails: readonly ServiceDetail[] = [
         objectPosition: 'center',
       },
       {
-        src: fotografiaAbuelaNietaImage,
-        alt: 'Abuela y nieta abrazadas celebrando frente a una torta con el número 80.',
-        width: 1536,
-        height: 1024,
-        objectPosition: 'center',
-      },
-      {
         src: fotografiaAmigosBrindisImage,
-        alt: 'Grupo de amigos brindando con cotillón y collares en la pista de baile.',
-        width: 1536,
-        height: 1024,
+        alt: 'Grupo de amigos festejando con collares hawaianos y varitas luminosas en la pista de baile.',
+        width: 1024,
+        height: 682,
         objectPosition: 'center',
       },
       {
@@ -529,13 +525,6 @@ export const serviceDetails: readonly ServiceDetail[] = [
         objectPosition: 'center',
       },
       {
-        src: fotografiaNinasAntifazImage,
-        alt: 'Dos niñas posando con sombrero vaquero y antifaz dorado frente a una cortina metálica.',
-        width: 1536,
-        height: 1024,
-        objectPosition: 'center',
-      },
-      {
         src: fotografiaBebeJardinImage,
         alt: 'Bebé sentado sobre una manta en un jardín iluminado durante un cumpleaños.',
         width: 1536,
@@ -545,15 +534,8 @@ export const serviceDetails: readonly ServiceDetail[] = [
       {
         src: fotografiaAlasPistaImage,
         alt: 'Joven bailando con alas iridiscentes en la pista iluminada con luces de colores.',
-        width: 1536,
-        height: 1024,
-        objectPosition: 'center',
-      },
-      {
-        src: fotografiaSoplandoVelasImage,
-        alt: 'Quinceañera soplando las velas doradas número 15 sobre su torta rodeada de flores.',
         width: 1024,
-        height: 683,
+        height: 682,
         objectPosition: 'center',
       },
     ],
@@ -572,7 +554,7 @@ export const serviceDetails: readonly ServiceDetail[] = [
       openGraphTitle: 'Fotografía | PartyTime Uruguay',
       openGraphDescription:
         'Imágenes auténticas, espontáneas y llenas de vida que cuentan la historia de tu celebración, de principio a fin.',
-      openGraphImage: fotografia.image.src,
+      openGraphImage: fotografiaQuinceaneraImage,
     },
   },
   {

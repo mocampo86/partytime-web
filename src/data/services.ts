@@ -1,8 +1,8 @@
-import cabinaBoomerangImage from '../assets/services/cabina-boomerang-evento.jpg';
-import espejoMagicoImage from '../assets/services/espejo-magico-evento.jpg';
+import cabinaBoomerangImage from '../assets/services/cabina-boomerang-evento.png';
+import espejoMagicoImage from '../assets/services/espejo-magico-pareja-accesorios.jpg';
 import exterioresImage from '../assets/services/exteriores-sesion-exterior.jpg';
 import filmacionImage from '../assets/services/filmacion-evento.jpg';
-import fotografiaImage from '../assets/services/fotografia-quinceanera.jpg';
+import fotografiaImage from '../assets/service-details/fotografia/fotografia-quinceanera-corredor.jpg';
 import ososTeddyImage from '../assets/services/osos-teddy-evento.jpg';
 import partypicImage from '../assets/services/partypic-evento.jpg';
 import plataforma360Image from '../assets/services/plataforma-360-evento.jpg';
@@ -19,9 +19,9 @@ export const services: readonly Service[] = [
     detailPath: '/servicios/fotografia',
     image: {
       src: fotografiaImage,
-      alt: 'Quinceañera con tiara junto a un arreglo floral durante una celebración con decoración violeta.',
-      width: 1024,
-      height: 682,
+      alt: 'Quinceañera de espaldas mirando por el hombro en un corredor iluminado con luces violetas y azules.',
+      width: 1536,
+      height: 1024,
     },
   },
   {
@@ -34,7 +34,7 @@ export const services: readonly Service[] = [
       src: filmacionImage,
       alt: 'Mujer sonriendo durante un evento iluminado con luces cálidas y detalles azules.',
       width: 683,
-      height: 1024,
+      height: 512,
     },
   },
   {
@@ -60,7 +60,7 @@ export const services: readonly Service[] = [
     detailPath: '/servicios/espejo-magico',
     image: {
       src: espejoMagicoImage,
-      alt: 'Dos personas posando con accesorios frente a una cortina metálica azul y violeta durante una experiencia de Espejo Mágico.',
+      alt: 'Pareja posando con anteojos de corazón y orejas de conejo frente a una cortina metálica azul y violeta durante una experiencia de Espejo Mágico.',
       width: 1024,
       height: 706,
     },
@@ -75,8 +75,8 @@ export const services: readonly Service[] = [
     image: {
       src: cabinaBoomerangImage,
       alt: 'Mujer posando con anteojos frente a una cortina metálica azul y magenta durante una experiencia de Cabina Boomerang.',
-      width: 1024,
-      height: 683,
+      width: 1535,
+      height: 1025,
     },
   },
   {
