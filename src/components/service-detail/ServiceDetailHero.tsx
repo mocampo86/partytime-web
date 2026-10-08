@@ -1,5 +1,6 @@
 import { ResponsiveImage } from '../ResponsiveImage';
 import type { ServiceDetail } from '../../types/service';
+import { getAvailabilityUrl } from '../../utils/availability';
 
 type ServiceDetailHeroProps = {
   detail: ServiceDetail;
@@ -33,10 +34,21 @@ export function ServiceDetailHero({ detail }: ServiceDetailHeroProps) {
           <p className="service-detail-hero__statement">{detail.hero.statement}</p>
         ) : null}
         <div className="service-detail-hero__action">
-          <span className="button button--primary service-detail__cta-button">
-            {detail.hero.ctaLabel}
-          </span>
-          <span className="service-detail__pending">Disponible próximamente</span>
+          {detail.hero.ctaLabel === 'Consultar disponibilidad' ? (
+            <a
+              className="button button--primary service-detail__cta-button"
+              href={getAvailabilityUrl(detail.serviceId)}
+            >
+              {detail.hero.ctaLabel}
+            </a>
+          ) : (
+            <>
+              <span className="button button--primary service-detail__cta-button">
+                {detail.hero.ctaLabel}
+              </span>
+              <span className="service-detail__pending">Disponible próximamente</span>
+            </>
+          )}
         </div>
         {detail.hero.highlights?.length ? (
           <ul

@@ -17,18 +17,10 @@ export function Hero() {
             <a className="button button--primary" href="#servicios">
               Conocé nuestros servicios
             </a>
-            <button
-              className="button button--secondary"
-              type="button"
-              disabled
-              aria-describedby="hero-date-note"
-            >
+            <a className="button button--secondary" href="/consultar-disponibilidad">
               Consultar fecha
-            </button>
+            </a>
           </div>
-          <p className="hero__note" id="hero-date-note">
-            Consulta de disponibilidad disponible próximamente.
-          </p>
         </div>
 
         <div className="hero__media" aria-hidden="true">

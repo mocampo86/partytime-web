@@ -1,11 +1,17 @@
-import type { ServiceDetail } from '../../types/service';
+import type { ServiceDetail, ServiceId } from '../../types/service';
+import { getAvailabilityUrl } from '../../utils/availability';
 import { getWhatsAppUrl } from '../../utils/whatsapp';
 
 type ServiceContactCtaProps = {
   contactCta: ServiceDetail['contactCta'];
+  serviceId: ServiceId;
 };
 
-export function ServiceContactCta({ contactCta }: ServiceContactCtaProps) {
+export function ServiceContactCta({ contactCta, serviceId }: ServiceContactCtaProps) {
+  const availabilityUrl =
+    contactCta.label === 'Consultar disponibilidad'
+      ? getAvailabilityUrl(serviceId)
+      : null;
   const whatsAppUrl = contactCta.whatsAppEnabled
     ? getWhatsAppUrl(contactCta.message)
     : null;
@@ -21,7 +27,14 @@ export function ServiceContactCta({ contactCta }: ServiceContactCtaProps) {
           <p>{contactCta.description}</p>
         </div>
         <div className="service-contact__action">
-          {whatsAppUrl ? (
+          {availabilityUrl ? (
+            <a
+              className="button button--primary service-detail__cta-button"
+              href={availabilityUrl}
+            >
+              {contactCta.label}
+            </a>
+          ) : whatsAppUrl ? (
             <a
               className="button button--primary service-detail__cta-button"
               href={whatsAppUrl}

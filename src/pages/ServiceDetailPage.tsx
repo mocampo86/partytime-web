@@ -98,7 +98,7 @@ export function ServiceDetailPage({ detail }: ServiceDetailPageProps) {
       {(detail.sectionOrder ?? defaultSectionOrder).map((section) => (
         <Fragment key={section}>{sections[section]}</Fragment>
       ))}
-      <ServiceContactCta contactCta={detail.contactCta} />
+      <ServiceContactCta contactCta={detail.contactCta} serviceId={detail.serviceId} />
     </div>
   );
 }

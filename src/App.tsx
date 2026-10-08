@@ -4,6 +4,7 @@ import { services } from './data/services';
 import { usePageMetadata } from './hooks/usePageMetadata';
 import { SiteLayout } from './layouts/SiteLayout';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { AvailabilityPage } from './pages/AvailabilityPage';
 import { ServiceDetailPage } from './pages/ServiceDetailPage';
 import { EventTypeCatalog } from './sections/EventTypeCatalog';
 import { Hero } from './sections/Hero';
@@ -16,6 +17,15 @@ const siteMetadata = {
   openGraphTitle: 'PartyTime Uruguay | Experiencias para eventos',
   openGraphDescription:
     'Fotografía, filmación y experiencias interactivas para eventos. Espejo Mágico, Cabina Boomerang, Plataforma 360, Robot LED, PartyPic y Osos Teddy.',
+};
+
+const availabilityMetadata = {
+  title: 'Consultar disponibilidad | PartyTime Uruguay',
+  description:
+    'Consultá disponibilidad para tu evento seleccionando los servicios, la fecha y la ciudad de tu celebración.',
+  openGraphTitle: 'Consultar disponibilidad | PartyTime Uruguay',
+  openGraphDescription:
+    'Contanos qué servicios querés para tu evento y prepará tu consulta para PartyTime.',
 };
 
 const notFoundMetadata = {
@@ -36,11 +46,14 @@ export default function App() {
     ? getServicePageBySlug(serviceMatch[1])
     : null;
   const isLandingPage = pathname === '/';
+  const isAvailabilityPage = pathname === '/consultar-disponibilidad';
   const metadata = isLandingPage
     ? siteMetadata
-    : servicePage
-      ? servicePage.detail.seo
-      : notFoundMetadata;
+    : isAvailabilityPage
+      ? availabilityMetadata
+      : servicePage
+        ? servicePage.detail.seo
+        : notFoundMetadata;
 
   usePageMetadata(metadata);
 
@@ -52,6 +65,10 @@ export default function App() {
           <ServiceCatalog services={services} />
           <EventTypeCatalog eventTypes={eventTypes} />
         </>
+      ) : isAvailabilityPage ? (
+        <AvailabilityPage
+          preselectedServiceId={new URLSearchParams(window.location.search).get('servicio')}
+        />
       ) : servicePage ? (
         <ServiceDetailPage detail={servicePage.detail} />
       ) : (
