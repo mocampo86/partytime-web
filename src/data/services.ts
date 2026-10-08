@@ -129,6 +129,7 @@ export const services: readonly Service[] = [
     name: 'Osos Teddy',
     shortDescription:
       'Personajes gigantes que llegan para sorprender, bailar e interactuar con tus invitados.',
+    detailPath: '/servicios/osos-teddy',
     image: {
       src: ososTeddyImage,
       alt: 'Osos Teddy rosado y celeste bailando entre invitados durante una fiesta iluminada con luces azules y magenta.',

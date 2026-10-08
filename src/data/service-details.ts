@@ -31,6 +31,7 @@ const cabinaBoomerang = services.find((service) => service.id === 'cabina-boomer
 const plataforma360 = services.find((service) => service.id === 'plataforma-360')!;
 const robotLed = services.find((service) => service.id === 'robot-led')!;
 const partyPic = services.find((service) => service.id === 'partypic')!;
+const ososTeddy = services.find((service) => service.id === 'osos-teddy')!;
 
 export const serviceDetails: readonly ServiceDetail[] = [
   {
@@ -846,6 +847,80 @@ export const serviceDetails: readonly ServiceDetail[] = [
       openGraphDescription:
         'Una experiencia digital, interactiva y colaborativa donde cada mirada se comparte en tiempo real.',
       openGraphImage: partyPic.image.src,
+    },
+  },
+  {
+    serviceId: 'osos-teddy',
+    displayName: 'Show de Osos Teddy',
+    hero: {
+      eyebrow: 'SHOW DE OSOS TEDDY',
+      headline: 'Una sorpresa gigante, una diversión inolvidable',
+      subtitle:
+        '¿Te imaginás la sorpresa de tus invitados cuando dos osos Teddy gigantes aparecen en medio de la fiesta y convierten todo en un verdadero espectáculo?',
+      description: [
+        'Nuestro Show de Osos Teddy llega para romper la rutina, contagiar alegría y transformar cualquier celebración en un momento lleno de música, baile y diversión.',
+        'Con una entrada especialmente preparada, nuestros osos gigantes se convierten en protagonistas junto a tus invitados. Bailan, interactúan, posan para fotos y generan esos momentos espontáneos que todos quieren grabar y compartir.',
+        'Una propuesta que también se disfruta en fiestas de 15, casamientos y celebraciones de adultos.',
+        'Y cuando parece que la sorpresa no puede ser mayor, los efectos especiales pueden llevar la experiencia a otro nivel.',
+      ],
+      statement:
+        'Porque las mejores sorpresas no solo se ven… ¡se bailan, se viven y se recuerdan!',
+      image: ososTeddy.image,
+      ctaLabel: 'Consultar disponibilidad',
+    },
+    benefits: {
+      title: 'Una experiencia sorpresa para todos',
+      items: [
+        {
+          title: '🧸 Dos protagonistas gigantes',
+          description:
+            'Dos osos Teddy de gran tamaño irrumpen en la celebración para sorprender a todos y convertirse en el centro de atención.',
+        },
+        {
+          title: '🎵 Música, baile y diversión',
+          description:
+            'Una entrada musical coordinada y una puesta en escena pensada para levantar la energía de la fiesta y hacer bailar a los invitados.',
+        },
+        {
+          title: '🎉 Todos son parte del show',
+          description:
+            'Abrazos, bailes, fotografías y momentos espontáneos. Una experiencia interactiva donde grandes y chicos pueden participar.',
+        },
+        {
+          title: '✨ Una entrada de película',
+          description:
+            'Potenciamos la sorpresa con bombas de papel y la posibilidad de incorporar fuegos fríos para crear un momento todavía más espectacular.',
+        },
+      ],
+    },
+    includesTitle: 'Qué incluye',
+    includes: [
+      'Dos osos Teddy gigantes.',
+      'Entrada y puesta en escena coordinada.',
+      'Animación musical y baile.',
+      'Interacción con los invitados.',
+      'Momentos especiales para fotografías y videos.',
+      'Bombas de papel.',
+      'Fuegos fríos disponibles como adicional opcional (no incluidos por defecto).',
+    ],
+    gallery: [],
+    contactCta: {
+      title: 'Dos osos gigantes. Una sorpresa enorme. Recuerdos para siempre.',
+      description:
+        'Hay momentos que nadie espera, pero que todos terminan recordando. Nuestro Show de Osos Teddy transforma una simple sorpresa en una experiencia llena de alegría, música y emoción.',
+      label: 'Consultar disponibilidad',
+      message:
+        'Hola PartyTime, estoy interesado/a en el Show de Osos Teddy y quisiera consultar disponibilidad.',
+    },
+    sectionOrder: ['benefits', 'includes'],
+    seo: {
+      title: 'Show de Osos Teddy para eventos | PartyTime Uruguay',
+      description:
+        'Dos osos Teddy gigantes llevan música, baile, interacción y una sorpresa inolvidable a fiestas de 15, casamientos y celebraciones de adultos.',
+      openGraphTitle: 'Show de Osos Teddy | PartyTime Uruguay',
+      openGraphDescription:
+        'Una experiencia sorpresa con osos gigantes, animación musical, interacción y efectos especiales opcionales.',
+      openGraphImage: ososTeddy.image.src,
     },
   },
 ];
