@@ -28,6 +28,7 @@ import type { Service, ServiceDetail } from '../types/service';
 import { services } from './services';
 
 const cabinaBoomerang = services.find((service) => service.id === 'cabina-boomerang')!;
+const plataforma360 = services.find((service) => service.id === 'plataforma-360')!;
 const robotLed = services.find((service) => service.id === 'robot-led')!;
 const partyPic = services.find((service) => service.id === 'partypic')!;
 
@@ -245,6 +246,77 @@ export const serviceDetails: readonly ServiceDetail[] = [
       openGraphDescription:
         'Una cabina interactiva con boomerangs, impresiones personalizadas, QR y recuerdos para compartir al instante.',
       openGraphImage: cabinaBoomerang.image.src,
+    },
+  },
+  {
+    serviceId: 'plataforma-360',
+    displayName: 'Cabina 360°',
+    hero: {
+      eyebrow: 'CABINA 360°',
+      headline: 'Donde comienza la revolución',
+      subtitle: '¡Preparate para vivir tu fiesta desde todos los ángulos!',
+      description: [
+        'Nuestra Cabina 360° transforma cada movimiento en un video espectacular. Bailá, girá, divertite y convertite en protagonista de una experiencia llena de energía, efectos sorprendentes y momentos inolvidables.',
+        'Gracias a su tecnología de grabación Full HD, efectos de cámara lenta y rápida estilo Matrix, cada video se convierte en una producción única, lista para descargar en tu celular y compartir en tus redes sociales.',
+        'Con iluminación LED, cotillón y efectos especiales, creamos un verdadero set de entretenimiento donde todos quieren participar.',
+        'Porque hay momentos que merecen mucho más que una foto. ¡Merecen vivirse en 360°!',
+      ],
+      image: plataforma360.image,
+      ctaLabel: 'Consultar disponibilidad',
+    },
+    benefits: {
+      title: 'Tecnología y diversión desde todos los ángulos',
+      items: [
+        {
+          title: '🎬 Videos 360° en Full HD',
+          description:
+            'Capturamos cada movimiento con una experiencia envolvente y efectos de cámara lenta y rápida estilo Matrix.',
+        },
+        {
+          title: '📱 Tus videos al instante',
+          description:
+            'Descargá tus videos directamente al celular mediante una tarjeta personalizada con código QR. ¡Listos para compartir!',
+        },
+        {
+          title: '🎉 Diversión sin límites',
+          description:
+            'Incluimos cotillón para que cada invitado pueda crear videos espontáneos, originales y llenos de personalidad.',
+        },
+        {
+          title: '✨ Efectos que sorprenden',
+          description:
+            'Iluminación LED, humo, burbujas y otros efectos que transforman cada grabación en un verdadero espectáculo.',
+        },
+      ],
+    },
+    includesTitle: 'Qué incluye',
+    includes: [
+      'Videos 360° en calidad Full HD.',
+      'Efectos de cámara rápida y lenta estilo Matrix.',
+      'Descarga de videos al celular mediante código QR.',
+      'Tarjeta con QR personalizable.',
+      'Cotillón para los invitados.',
+      'Iluminación LED.',
+      'Efectos especiales según la configuración contratada.',
+    ],
+    gallery: [],
+    contactCta: {
+      title: 'Tu fiesta en movimiento. Tus recuerdos en 360°.',
+      description:
+        'Mucho más que una cabina: una experiencia que reúne diversión, tecnología y momentos únicos para compartir.',
+      label: 'Consultar disponibilidad',
+      message:
+        'Hola PartyTime, estoy interesado/a en la Cabina 360° y quisiera consultar disponibilidad.',
+    },
+    sectionOrder: ['benefits', 'includes'],
+    seo: {
+      title: 'Cabina 360° para eventos | PartyTime Uruguay',
+      description:
+        'Viví tu fiesta desde todos los ángulos con videos 360° Full HD, efectos especiales y descarga instantánea mediante QR.',
+      openGraphTitle: 'Cabina 360° | PartyTime Uruguay',
+      openGraphDescription:
+        'Una experiencia 360° con videos Full HD, efectos sorprendentes y recuerdos listos para compartir.',
+      openGraphImage: plataforma360.image.src,
     },
   },
   {

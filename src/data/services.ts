@@ -85,6 +85,7 @@ export const services: readonly Service[] = [
     name: 'Plataforma 360',
     shortDescription:
       'Videos 360° llenos de energía y efectos para vivir y compartir una experiencia única.',
+    detailPath: '/servicios/plataforma-360',
     image: {
       src: plataforma360Image,
       alt: 'Invitada girando sobre una plataforma 360 iluminada con luces azules y violetas durante un evento.',
