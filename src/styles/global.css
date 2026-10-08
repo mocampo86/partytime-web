@@ -1507,6 +1507,12 @@ a {
   min-width: 0;
 }
 
+.service-gallery__grid[data-count='2'] .service-gallery__figure {
+  aspect-ratio: 3 / 2;
+  height: auto;
+  min-height: 0;
+}
+
 .service-gallery__figure {
   position: relative;
   isolation: isolate;
@@ -1967,8 +1973,9 @@ a {
     grid-template-rows: minmax(20rem, 1fr);
   }
 
-  .service-gallery__grid[data-count='2'] .service-gallery__item {
-    grid-row: 1 / -1;
+  .service-gallery__grid[data-count='2'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
   }
 
   .service-gallery__grid[data-count='3'] .service-gallery__item:first-child {

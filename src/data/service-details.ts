@@ -1,7 +1,6 @@
 import bodasEventoImage from '../assets/event-types/bodas-evento.jpg';
-import espejoMagicoEventoImage from '../assets/services/espejo-magico-evento.jpg';
+import espejoMagicoEventoImage from '../assets/services/espejo-magico-pareja-accesorios.jpg';
 import fotografiaQuinceaneraImage from '../assets/services/fotografia-quinceanera.jpg';
-import espejoMagicoAccesoriosImage from '../assets/service-details/espejo-magico/espejo-magico-accesorios.jpg';
 import espejoMagicoFirmaImage from '../assets/service-details/espejo-magico/espejo-magico-firma.jpg';
 import espejoMagicoInteraccionImage from '../assets/service-details/espejo-magico/espejo-magico-interaccion.jpg';
 import espejoMagicoTirasXxlImage from '../assets/service-details/espejo-magico/espejo-magico-tiras-xxl.png';
@@ -21,6 +20,7 @@ import partycubeBodaAccesoriosImage from '../assets/service-details/partycube/pa
 import partycubeInvitadosCotillonImage from '../assets/service-details/partycube/partycube-invitados-cotillon.jpg';
 import partycubeInvitadosSombrerosImage from '../assets/service-details/partycube/partycube-invitados-sombreros.jpg';
 import partycubeTiraInteligenteImage from '../assets/service-details/partycube/partycube-tira-inteligente.png';
+import partyPicProyeccionEventoImage from '../assets/services/partypic-proyeccion-evento.jpg';
 import partyrbotEscenarioInvitadosImage from '../assets/service-details/partyrbot/partyrbot-escenario-invitados.jpg';
 import partyrbotFuegosFriosImage from '../assets/service-details/partyrbot/partyrbot-fuegos-frios.jpg';
 import partyrbotInteraccionInvitadosImage from '../assets/service-details/partyrbot/partyrbot-interaccion-invitados.jpg';
@@ -29,6 +29,7 @@ import { services } from './services';
 
 const cabinaBoomerang = services.find((service) => service.id === 'cabina-boomerang')!;
 const robotLed = services.find((service) => service.id === 'robot-led')!;
+const partyPic = services.find((service) => service.id === 'partypic')!;
 
 export const serviceDetails: readonly ServiceDetail[] = [
   {
@@ -105,13 +106,6 @@ export const serviceDetails: readonly ServiceDetail[] = [
         width: 1024,
         height: 682,
         objectPosition: 'center',
-      },
-      {
-        src: espejoMagicoAccesoriosImage,
-        alt: 'Dos invitadas posando con accesorios frente a una cortina metálica durante una experiencia de Espejo Mágico.',
-        width: 1024,
-        height: 682,
-        objectPosition: 'center 45%',
       },
     ],
     contactCta: {
@@ -710,6 +704,76 @@ export const serviceDetails: readonly ServiceDetail[] = [
       openGraphDescription:
         'Sesiones en exteriores donde el paisaje, la luz natural y tu personalidad crean imágenes auténticas y llenas de vida.',
       openGraphImage: '/images/services/exteriores/hero.jpg',
+    },
+  },
+  {
+    serviceId: 'partypic',
+    displayName: 'PartyPic',
+    hero: {
+      eyebrow: 'PARTYPIC',
+      headline: 'Cada mirada cuenta, cada momento se comparte',
+      subtitle: 'Una experiencia digital, interactiva y colaborativa para tu evento.',
+      description: [
+        'PartyPic es una plataforma interactiva donde los invitados comparten fotos y mensajes de la fiesta.',
+        'Solo tienen que escanear un código QR desde sus celulares: pueden participar sin instalar aplicaciones.',
+        'Las fotografías aprobadas se proyectan automáticamente en las pantallas del evento, en tiempo real.',
+      ],
+      statement: 'Todos participan. Todos comparten.',
+      image: partyPic.image,
+      ctaLabel: 'Quiero PartyPic en mi fiesta',
+    },
+    editorial: {
+      title: 'Ideal para cualquier celebración',
+      paragraphs: [
+        'PartyPic es perfecto para cumpleaños de 15, bodas, cumpleaños infantiles, fiestas empresariales y celebraciones especiales.',
+      ],
+    },
+    benefits: {
+      title: 'Una experiencia para compartir',
+      items: [
+        {
+          title: 'Participación de todos',
+          description:
+            'Cada invitado puede aportar fotos y mensajes desde su celular y sumar su mirada a la celebración.',
+        },
+        {
+          title: 'Fácil de usar',
+          description:
+            'Escanean el código QR y comparten desde sus celulares, sin instalar aplicaciones.',
+        },
+        {
+          title: 'La fiesta en las pantallas',
+          description:
+            'Las fotografías aprobadas se proyectan automáticamente en las pantallas del evento en tiempo real.',
+        },
+      ],
+    },
+    includes: [],
+    gallery: [
+      {
+        src: partyPicProyeccionEventoImage,
+        alt: 'Invitados observando fotografías de la celebración proyectadas en una pantalla durante el evento.',
+        width: 1024,
+        height: 682,
+        objectPosition: 'center',
+      },
+    ],
+    contactCta: {
+      title: 'PartyPic – Todos los momentos, todas las miradas, una sola fiesta',
+      description:
+        'Una experiencia digital y colaborativa para compartir fotos y mensajes durante tu evento.',
+      label: 'Quiero PartyPic en mi fiesta',
+      message: 'Hola PartyTime, quiero consultar por PartyPic para mi fiesta.',
+    },
+    sectionOrder: ['benefits', 'editorial', 'gallery'],
+    seo: {
+      title: 'PartyPic para eventos | PartyTime Uruguay',
+      description:
+        'PartyPic permite que los invitados compartan fotos y mensajes desde sus celulares sin instalar aplicaciones, y proyecta automáticamente las fotografías aprobadas en las pantallas del evento.',
+      openGraphTitle: 'PartyPic para tu fiesta | PartyTime Uruguay',
+      openGraphDescription:
+        'Una experiencia digital, interactiva y colaborativa donde cada mirada se comparte en tiempo real.',
+      openGraphImage: partyPic.image.src,
     },
   },
 ];

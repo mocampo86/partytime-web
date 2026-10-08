@@ -177,11 +177,10 @@ The site does not have an official WhatsApp number or URL. Detail-page CTAs use 
 
 ## Service media
 
-Espejo Mágico has one approved hero image from the service catalog plus three approved gallery images stored under `src/assets/service-details/espejo-magico/`:
+Espejo Mágico has one approved hero image from the service catalog plus two approved gallery images stored under `src/assets/service-details/espejo-magico/`:
 
 - `espejo-magico-firma.jpg`
 - `espejo-magico-interaccion.jpg`
-- `espejo-magico-accesorios.jpg`
 
 The Tiras XXL differential also uses the approved supporting asset:
 

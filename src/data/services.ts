@@ -113,6 +113,7 @@ export const services: readonly Service[] = [
     name: 'PartyPic',
     shortDescription:
       'Tus invitados escanean un QR, suben sus fotos y juntos crean una galería única del evento.',
+    detailPath: '/servicios/partypic',
     image: {
       src: partypicImage,
       alt: 'Invitada escaneando el código QR de PartyPic para subir fotos durante una fiesta.',
