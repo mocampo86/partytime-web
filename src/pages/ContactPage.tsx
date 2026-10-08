@@ -1,3 +1,5 @@
+import { SocialIcon } from '../components/SocialIcon';
+import { socialLinks } from '../data/social-links';
 import { getAvailabilityUrl } from '../utils/availability';
 import { getWhatsAppUrl } from '../utils/whatsapp';
 
@@ -65,6 +67,37 @@ export function ContactPage() {
           </a>
         </section>
       </div>
+
+      <section className="contact-social" aria-labelledby="contact-social-title">
+        <div className="contact-social__header">
+          <h2 id="contact-social-title">Seguinos y viví la experiencia PartyTime</h2>
+          <p>
+            Descubrí nuestros eventos, inspirate con nuevas ideas y conocé todo lo que podemos
+            crear para tu próxima celebración.
+          </p>
+        </div>
+        <div className="contact-social__links">
+          {socialLinks.map((link) => (
+            <a
+              key={link.id}
+              className="contact-social-card"
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${link.label} de PartyTime: ${link.displayName}`}
+            >
+              <SocialIcon id={link.id} className="contact-social-card__icon" />
+              <span className="contact-social-card__content">
+                <span className="contact-social-card__name">{link.label}</span>
+                <span className="contact-social-card__handle">{link.displayName}</span>
+              </span>
+              <span className="contact-social-card__arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
     </section>
   );
 }
