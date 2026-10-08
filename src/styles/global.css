@@ -2335,6 +2335,156 @@ a {
   }
 }
 
+.contact-page {
+  min-height: calc(100vh - var(--header-height));
+  padding-top: clamp(3.5rem, 9vw, 6.5rem);
+}
+
+.contact-page__header {
+  max-width: 46rem;
+}
+
+.contact-page__header h1 {
+  margin-block: 0.75rem 1.25rem;
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.contact-page__header > p:last-child {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: clamp(1rem, 3vw, 1.1875rem);
+  line-height: 1.6;
+}
+
+.contact-page__options {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: clamp(2rem, 6vw, 3.5rem);
+}
+
+.contact-option {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  overflow: hidden;
+  padding: clamp(1.5rem, 5vw, 2.75rem);
+  border: var(--border-subtle);
+  border-radius: var(--radius-large);
+  background: rgb(var(--color-surface-rgb) / 74%);
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-option::before {
+  position: absolute;
+  z-index: -1;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  content: '';
+  filter: blur(2rem);
+  opacity: 0.52;
+}
+
+.contact-option--whatsapp::before {
+  top: -12rem;
+  left: -7rem;
+  background: rgb(37 211 102 / 34%);
+}
+
+.contact-option--availability {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.contact-option--availability::before {
+  right: -9rem;
+  bottom: -13rem;
+  background: rgb(var(--color-accent-rgb) / 29%);
+}
+
+.contact-option__whatsapp-icon {
+  width: clamp(4rem, 9vw, 5rem);
+  height: clamp(4rem, 9vw, 5rem);
+  border-radius: 50%;
+  object-fit: cover;
+  filter: drop-shadow(0 0.625rem 1.125rem rgb(0 0 0 / 24%));
+}
+
+.contact-option__content h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.375rem, 4vw, 2rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.contact-option__content > p:last-child {
+  max-width: 43rem;
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.contact-option__eyebrow {
+  margin: 0 0 0.625rem;
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-option__action {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.contact-option__pending {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+@media (max-width: 52rem) {
+  .contact-option {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .contact-option__action,
+  .contact-option__pending {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .contact-option--availability .contact-option__content {
+    grid-column: 1 / -1;
+  }
+
+  .contact-option--availability .contact-option__action {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .contact-option {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-option__action,
+  .contact-option__pending,
+  .contact-option--availability .contact-option__content,
+  .contact-option--availability .contact-option__action {
+    grid-column: 1;
+  }
+
+  .contact-option__action {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

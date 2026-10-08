@@ -10,12 +10,13 @@ const navigationItems: readonly NavigationItem[] = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Servicios', href: '#servicios' },
   { label: 'Experiencias' },
-  { label: 'Contacto' },
+  { label: 'Contacto', href: '/contacto' },
 ];
 
 export function SiteHeader() {
   const isLandingPage = window.location.pathname === '/';
-  const landingHref = (anchor: string) => (isLandingPage ? anchor : `/${anchor}`);
+  const navigationHref = (href: string) =>
+    href.startsWith('#') ? (isLandingPage ? href : `/${href}`) : href;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -40,7 +41,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <a className="site-brand" href={landingHref('#inicio')} onClick={closeMenu}>
+        <a className="site-brand" href={navigationHref('#inicio')} onClick={closeMenu}>
           <img
             className="site-brand__logo"
             src={partyTimeLogo}
@@ -76,7 +77,7 @@ export function SiteHeader() {
                 {item.href ? (
                   <a
                     className="site-nav__link"
-                    href={landingHref(item.href)}
+                    href={navigationHref(item.href)}
                     onClick={closeMenu}
                   >
                     {item.label}
