@@ -1702,43 +1702,33 @@ a {
   right: max(1rem, env(safe-area-inset-right));
   bottom: max(1rem, env(safe-area-inset-bottom));
   z-index: 20;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 6.5rem;
-  min-height: 4rem;
-  padding: 0.625rem 0.875rem;
-  border: var(--border-subtle);
-  border-radius: 999px;
-  background: rgb(var(--color-surface-elevated-rgb) / 90%);
-  box-shadow: var(--shadow-soft);
-  pointer-events: none;
-  text-align: center;
+  display: inline-grid;
+  width: 3.75rem;
+  height: 3.75rem;
+  overflow: hidden;
+  place-items: center;
+  border-radius: 50%;
+  filter: drop-shadow(0 0.75rem 1.5rem rgb(0 0 0 / 35%));
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
 }
 
-.whatsapp-cta::before {
-  position: absolute;
-  top: 0;
-  right: 1rem;
-  left: 1rem;
-  height: 0.125rem;
-  border-radius: 999px;
-  background: var(--gradient-brand);
-  content: '';
+.whatsapp-cta:hover {
+  filter: drop-shadow(0 1rem 1.75rem rgb(0 0 0 / 45%));
+  transform: translateY(-0.1875rem) scale(1.04);
 }
 
-.whatsapp-cta__service {
-  color: var(--color-text);
-  font-size: 0.875rem;
-  font-weight: 800;
-  line-height: 1.2;
+.whatsapp-cta:focus-visible {
+  outline: 0.1875rem solid var(--color-accent);
+  outline-offset: 0.25rem;
 }
 
-.whatsapp-cta__status {
-  color: var(--color-text-muted);
-  font-size: 0.75rem;
-  line-height: 1.2;
+.whatsapp-cta__icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @keyframes hero-rise-in {
@@ -1819,22 +1809,8 @@ a {
   .whatsapp-cta {
     right: max(0.875rem, env(safe-area-inset-right));
     bottom: max(0.875rem, env(safe-area-inset-bottom));
-    min-width: 0;
-    min-height: 3.25rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .whatsapp-cta::before {
-    right: 0.75rem;
-    left: 0.75rem;
-  }
-
-  .whatsapp-cta__service {
-    font-size: 0.8125rem;
-  }
-
-  .whatsapp-cta__status {
-    font-size: 0.6875rem;
+    width: 3.25rem;
+    height: 3.25rem;
   }
 }
 
