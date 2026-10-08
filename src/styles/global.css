@@ -705,6 +705,14 @@ a {
   line-height: 1.1;
 }
 
+.service-card__headline {
+  margin: 0.625rem 0 0;
+  color: var(--color-primary);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
 .service-card__description {
   margin: 0.75rem 0 0;
   color: var(--color-text-muted);

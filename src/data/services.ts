@@ -137,4 +137,18 @@ export const services: readonly Service[] = [
       height: 1024,
     },
   },
+  {
+    id: 'pista-led',
+    slug: 'pista-led',
+    name: 'Pista LED',
+    headline: 'La pista se enciende, la fiesta cobra vida',
+    shortDescription:
+      'Transformá tu fiesta en una experiencia llena de luz, color y movimiento. Nuestra Pista LED convierte cada baile en un espectáculo visual, creando el escenario perfecto para disfrutar momentos inolvidables.',
+    detailCtaLabel: 'Descubrir más',
+    detailPath: '/servicios/pista-led',
+    image: {
+      src: '/images/services/pista-led-evento.png',
+      alt: 'Fotografía de una pista de baile LED iluminada durante un evento real.',
+    },
+  },
 ];

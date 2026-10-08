@@ -32,6 +32,7 @@ const plataforma360 = services.find((service) => service.id === 'plataforma-360'
 const robotLed = services.find((service) => service.id === 'robot-led')!;
 const partyPic = services.find((service) => service.id === 'partypic')!;
 const ososTeddy = services.find((service) => service.id === 'osos-teddy')!;
+const pistaLed = services.find((service) => service.id === 'pista-led')!;
 
 export const serviceDetails: readonly ServiceDetail[] = [
   {
@@ -847,6 +848,94 @@ export const serviceDetails: readonly ServiceDetail[] = [
       openGraphDescription:
         'Una experiencia digital, interactiva y colaborativa donde cada mirada se comparte en tiempo real.',
       openGraphImage: partyPic.image.src,
+    },
+  },
+  {
+    serviceId: 'pista-led',
+    displayName: 'Pista LED RGBW',
+    hero: {
+      eyebrow: 'PISTA LED RGBW',
+      headline: 'Encendé la pista, hacé brillar tu fiesta',
+      description: [
+        'Hay momentos en los que la música se siente, las luces cobran vida y la pista se convierte en el corazón de la celebración.',
+        'Nuestra Pista LED RGBW transforma cualquier salón en un escenario lleno de luz, color y movimiento, creando una atmósfera espectacular que invita a todos a bailar.',
+        'Con una superficie de 4 × 4 metros y más de 100 programas de efectos luminosos, cada momento de tu fiesta puede tener una ambientación diferente: desde combinaciones elegantes y sutiles hasta explosiones de color que llenan la pista de energía.',
+        'Su tecnología RGBW permite crear una amplia variedad de colores y efectos visuales, adaptándose al estilo de cada celebración.',
+      ],
+      statement: 'Porque una gran fiesta merece una pista que brille tanto como sus protagonistas.',
+      image: {
+        ...pistaLed.image,
+        objectPosition: 'center 72%',
+        width: 1448,
+        height: 1086,
+      },
+      ctaLabel: 'Consultá por nuestra Pista LED',
+    },
+    benefits: {
+      title: 'Una pista que transforma el ambiente',
+      items: [
+        {
+          title: '✨ 16 m² para brillar',
+          description:
+            'Una pista de 4 × 4 metros que transforma el espacio de baile en el centro de todas las miradas, combinando tecnología, elegancia y diversión.',
+        },
+        {
+          title: '🌈 Más de 100 efectos luminosos',
+          description:
+            'Una amplia variedad de programas de iluminación que permiten crear diferentes ambientes, combinaciones de colores y secuencias visuales durante la celebración.',
+        },
+        {
+          title: '💡 Tecnología RGBW',
+          description:
+            'Iluminación LED con colores rojo, verde, azul y blanco, capaz de generar efectos vibrantes y también ambientaciones más elegantes y delicadas.',
+        },
+        {
+          title: '🎉 Cada momento, una atmósfera diferente',
+          description:
+            'Desde el primer baile hasta los momentos de máxima diversión, la pista permite cambiar su iluminación para acompañar las distintas etapas del evento.',
+        },
+      ],
+    },
+    includesTitle: 'Qué incluye el servicio',
+    includes: [
+      'Pista LED RGBW de 4 × 4 metros.',
+      'Superficie iluminada de 16 m².',
+      'Más de 100 programas de efectos luminosos.',
+      'Diferentes combinaciones de colores RGBW.',
+      'Funcionamiento automático de efectos.',
+      'Posibilidad de control manual de los programas.',
+      'Transporte, armado y desarmado de la pista, según las condiciones del servicio contratado.',
+      'Instalación para eventos en espacios interiores.',
+    ],
+    gallery: [
+      {
+        src: pistaLed.image.src,
+        alt: 'Invitados bailando sobre la superficie iluminada de la Pista LED RGBW durante una celebración.',
+        width: 1448,
+        height: 1086,
+        objectPosition: 'center 72%',
+      },
+    ],
+    galleryEyebrow: 'La pista en acción',
+    galleryTitle: 'Luz, color y movimiento en cada celebración',
+    contactCta: {
+      title: 'La música pone el ritmo. Nuestra pista pone la magia.',
+      description:
+        'Cada baile, cada encuentro y cada celebración merecen un escenario especial. Con nuestra Pista LED RGBW, la luz y el color se convierten en parte de la experiencia, transformando tu fiesta en un recuerdo que todos van a querer revivir.',
+      label: 'Consultá por nuestra Pista LED',
+      message:
+        '¡Hola! Estuve viendo la Pista LED RGBW de PartyTime y me gustaría recibir más información sobre disponibilidad y precios.',
+      whatsAppEnabled: true,
+    },
+    sectionOrder: ['benefits', 'includes', 'gallery'],
+    seo: {
+      title: 'Pista LED RGBW para eventos | PartyTime Uruguay',
+      description:
+        'Pista LED RGBW de 4 × 4 metros y 16 m², con más de 100 efectos luminosos para transformar eventos interiores en Uruguay.',
+      openGraphTitle: 'Pista LED RGBW | PartyTime Uruguay',
+      openGraphDescription:
+        'Luz, color y más de 100 efectos para hacer de la pista uno de los grandes momentos de tu fiesta.',
+      openGraphImage: pistaLed.image.src,
     },
   },
   {

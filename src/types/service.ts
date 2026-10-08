@@ -7,7 +7,8 @@ export type ServiceId =
   | 'plataforma-360'
   | 'robot-led'
   | 'partypic'
-  | 'osos-teddy';
+  | 'osos-teddy'
+  | 'pista-led';
 
 export type ServiceDetailPath = `/servicios/${ServiceId}`;
 
@@ -35,7 +36,10 @@ export type Service = {
   name: string;
   shortDescription: string;
   description?: string;
+  headline?: string;
+  detailCtaLabel?: string;
   image: ServiceImage;
+  imagePending?: boolean;
   icon?: string;
   featured?: boolean;
   detailPath?: ServiceDetailPath;
@@ -96,6 +100,7 @@ export type ServiceContactCta = {
   description: string;
   label: string;
   message: string;
+  whatsAppEnabled?: boolean;
 };
 
 export type ServiceSeo = {

@@ -1,10 +1,15 @@
 import type { ServiceDetail } from '../../types/service';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
 
 type ServiceContactCtaProps = {
   contactCta: ServiceDetail['contactCta'];
 };
 
 export function ServiceContactCta({ contactCta }: ServiceContactCtaProps) {
+  const whatsAppUrl = contactCta.whatsAppEnabled
+    ? getWhatsAppUrl(contactCta.message)
+    : null;
+
   return (
     <section className="site-section service-contact" aria-labelledby="service-contact-title">
       <div className="service-contact__panel">
@@ -16,10 +21,23 @@ export function ServiceContactCta({ contactCta }: ServiceContactCtaProps) {
           <p>{contactCta.description}</p>
         </div>
         <div className="service-contact__action">
-          <span className="button button--primary service-detail__cta-button">
-            {contactCta.label}
-          </span>
-          <span className="service-detail__pending">Disponible próximamente</span>
+          {whatsAppUrl ? (
+            <a
+              className="button button--primary service-detail__cta-button"
+              href={whatsAppUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {contactCta.label}
+            </a>
+          ) : (
+            <>
+              <span className="button button--primary service-detail__cta-button">
+                {contactCta.label}
+              </span>
+              <span className="service-detail__pending">Disponible próximamente</span>
+            </>
+          )}
         </div>
       </div>
     </section>

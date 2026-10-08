@@ -12,11 +12,11 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
     <article className="service-card" aria-labelledby={titleId}>
       <div
         className={`service-card__media${
-          service.image ? '' : ' service-card__media--empty'
+          service.image && !service.imagePending ? '' : ' service-card__media--empty'
         }`}
         data-index={String(index + 1).padStart(2, '0')}
       >
-        {service.image ? (
+        {service.image && !service.imagePending ? (
           <picture>
             {service.image.sources?.map((source) => (
               <source
@@ -57,21 +57,28 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         <h3 className="service-card__title" id={titleId}>
           {service.name}
         </h3>
+        {service.headline ? (
+          <p className="service-card__headline">{service.headline}</p>
+        ) : null}
         <p className="service-card__description">{service.shortDescription}</p>
         {service.detailPath ? (
           <a
             className="service-card__cta service-card__cta-link"
             href={service.detailPath}
-            aria-label={`Conocer más sobre ${service.name}`}
+            aria-label={`${service.detailCtaLabel ?? 'Conocer más'} sobre ${service.name}`}
           >
-            <span className="service-card__cta-text">Conocer más</span>
+            <span className="service-card__cta-text">
+              {service.detailCtaLabel ?? 'Conocer más'}
+            </span>
             <span className="service-card__cta-icon" aria-hidden="true">
               →
             </span>
           </a>
         ) : (
           <span className="service-card__cta">
-            <span className="service-card__cta-text">Conocer más</span>
+            <span className="service-card__cta-text">
+              {service.detailCtaLabel ?? 'Conocer más'}
+            </span>
             <span className="service-card__cta-icon" aria-hidden="true">
               →
             </span>
