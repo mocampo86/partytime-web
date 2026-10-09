@@ -799,6 +799,7 @@ export const serviceDetails: readonly ServiceDetail[] = [
       statement: 'Todos participan. Todos comparten.',
       image: partyPic.image,
       ctaLabel: 'Quiero PartyPic en mi fiesta',
+      availabilityEnabled: true,
     },
     editorial: {
       title: 'Ideal para cualquier celebración',
@@ -875,6 +876,7 @@ export const serviceDetails: readonly ServiceDetail[] = [
         height: 1086,
       },
       ctaLabel: 'Consultá por nuestra Pista LED',
+      availabilityEnabled: true,
     },
     benefits: {
       title: 'Una pista que transforma el ambiente',
