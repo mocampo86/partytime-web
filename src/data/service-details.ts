@@ -643,6 +643,7 @@ export const serviceDetails: readonly ServiceDetail[] = [
         objectPosition: 'center 38%',
       },
       ctaLabel: 'Quiero mi sesión',
+      availabilityEnabled: true,
     },
     story: [
       {
@@ -838,6 +839,7 @@ export const serviceDetails: readonly ServiceDetail[] = [
         'Una experiencia digital y colaborativa para compartir fotos y mensajes durante tu evento.',
       label: 'Quiero PartyPic en mi fiesta',
       message: 'Hola PartyTime, quiero consultar por PartyPic para mi fiesta.',
+      availabilityEnabled: true,
     },
     sectionOrder: ['benefits', 'editorial', 'gallery'],
     seo: {
@@ -925,7 +927,7 @@ export const serviceDetails: readonly ServiceDetail[] = [
       label: 'Consultá por nuestra Pista LED',
       message:
         '¡Hola! Estuve viendo la Pista LED RGBW de PartyTime y me gustaría recibir más información sobre disponibilidad y precios.',
-      whatsAppEnabled: true,
+      availabilityEnabled: true,
     },
     sectionOrder: ['benefits', 'includes', 'gallery'],
     seo: {

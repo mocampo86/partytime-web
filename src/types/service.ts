@@ -54,6 +54,7 @@ export type ServiceDetailHero = {
   image: ServiceImage;
   highlights?: readonly string[];
   ctaLabel: string;
+  availabilityEnabled?: boolean;
 };
 
 export type ServiceEditorialSection = {
@@ -100,6 +101,7 @@ export type ServiceContactCta = {
   description: string;
   label: string;
   message: string;
+  availabilityEnabled?: boolean;
   whatsAppEnabled?: boolean;
 };
 

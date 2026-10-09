@@ -7,6 +7,11 @@ type ServiceDetailHeroProps = {
 };
 
 export function ServiceDetailHero({ detail }: ServiceDetailHeroProps) {
+  const availabilityUrl =
+    detail.hero.availabilityEnabled || detail.hero.ctaLabel === 'Consultar disponibilidad'
+      ? getAvailabilityUrl(detail.serviceId)
+      : null;
+
   return (
     <section className="service-detail-hero" aria-labelledby="service-detail-title">
       <div className="service-detail-hero__media" aria-hidden="true">
@@ -34,10 +39,10 @@ export function ServiceDetailHero({ detail }: ServiceDetailHeroProps) {
           <p className="service-detail-hero__statement">{detail.hero.statement}</p>
         ) : null}
         <div className="service-detail-hero__action">
-          {detail.hero.ctaLabel === 'Consultar disponibilidad' ? (
+          {availabilityUrl ? (
             <a
               className="button button--primary service-detail__cta-button"
-              href={getAvailabilityUrl(detail.serviceId)}
+              href={availabilityUrl}
             >
               {detail.hero.ctaLabel}
             </a>

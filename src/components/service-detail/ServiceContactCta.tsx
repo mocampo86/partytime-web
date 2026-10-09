@@ -9,7 +9,7 @@ type ServiceContactCtaProps = {
 
 export function ServiceContactCta({ contactCta, serviceId }: ServiceContactCtaProps) {
   const availabilityUrl =
-    contactCta.label === 'Consultar disponibilidad'
+    contactCta.availabilityEnabled || contactCta.label === 'Consultar disponibilidad'
       ? getAvailabilityUrl(serviceId)
       : null;
   const whatsAppUrl = contactCta.whatsAppEnabled
