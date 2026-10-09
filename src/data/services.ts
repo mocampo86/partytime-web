@@ -30,6 +30,7 @@ export const services: readonly Service[] = [
     name: 'Filmación',
     shortDescription:
       'Convertimos los mejores momentos de tu evento en recuerdos que vuelven a cobrar vida.',
+    detailPath: '/servicios/filmacion',
     image: {
       src: filmacionImage,
       alt: 'Mujer sonriendo durante un evento iluminado con luces cálidas y detalles azules.',

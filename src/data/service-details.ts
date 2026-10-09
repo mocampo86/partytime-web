@@ -4,6 +4,8 @@ import fotografiaQuinceaneraImage from '../assets/services/fotografia-quinceaner
 import espejoMagicoFirmaImage from '../assets/service-details/espejo-magico/espejo-magico-firma.jpg';
 import espejoMagicoInteraccionImage from '../assets/service-details/espejo-magico/espejo-magico-interaccion.jpg';
 import espejoMagicoTirasXxlImage from '../assets/service-details/espejo-magico/espejo-magico-tiras-xxl.png';
+import filmacionBaileQuinceImage from '../assets/service-details/filmacion/filmacion-baile-quince.jpg';
+import filmacionQuinceaneraImage from '../assets/service-details/filmacion/filmacion-quinceanera.jpg';
 import fotografiaAlasIridiscentesImage from '../assets/service-details/fotografia/fotografia-alas-iridiscentes.jpg';
 import fotografiaAlasPistaImage from '../assets/service-details/fotografia/fotografia-alas-pista.jpg';
 import fotografiaAmigasVaquerasImage from '../assets/service-details/fotografia/fotografia-amigas-vaqueras.jpg';
@@ -28,6 +30,7 @@ import type { Service, ServiceDetail } from '../types/service';
 import { services } from './services';
 
 const cabinaBoomerang = services.find((service) => service.id === 'cabina-boomerang')!;
+const filmacion = services.find((service) => service.id === 'filmacion')!;
 const plataforma360 = services.find((service) => service.id === 'plataforma-360')!;
 const robotLed = services.find((service) => service.id === 'robot-led')!;
 const partyPic = services.find((service) => service.id === 'partypic')!;
@@ -1012,6 +1015,126 @@ export const serviceDetails: readonly ServiceDetail[] = [
       openGraphDescription:
         'Una experiencia sorpresa con osos gigantes, animación musical, interacción y efectos especiales opcionales.',
       openGraphImage: ososTeddy.image.src,
+    },
+  },
+  {
+    serviceId: 'filmacion',
+    displayName: 'Filmación',
+    hero: {
+      eyebrow: 'FILMACIÓN',
+      headline: 'Cada momento merece volver a vivirse',
+      subtitle: 'No solo grabamos tu celebración. Capturamos su historia.',
+      description: [
+        'Hay momentos que pasan en segundos, pero merecen quedarse para siempre. Una mirada, un abrazo, las palabras de alguien especial, la emoción de una entrada o la alegría de una pista de baile llena de vida.',
+        'En PartyTime transformamos esos instantes en recuerdos que podés volver a sentir una y otra vez.',
+        'Nuestro servicio de filmación combina calidad profesional, sensibilidad y creatividad para contar la historia de tu celebración de manera auténtica, dinámica y emocionante.',
+      ],
+      statement:
+        'Porque no se trata solamente de recordar cómo fue ese día, sino de volver a vivir lo que sentiste.',
+      image: filmacion.image,
+      ctaLabel: 'Consultar disponibilidad',
+    },
+    story: [
+      {
+        label: 'Diferencial',
+        title: 'Tu historia, tal como sucedió',
+        paragraphs: [
+          'Creemos que la verdadera magia de un video está en su capacidad de transportarte nuevamente a ese momento.',
+          'Por eso, uno de nuestros principales diferenciales es respetar el sonido original de tu celebración. La música que acompañó tu entrada, las palabras que emocionaron a todos, las risas espontáneas y los sonidos que hicieron único cada instante.',
+          'Cuidamos la conexión entre imagen y sonido para que lo que estás viendo coincida con lo que realmente estaba sucediendo y escuchándose.',
+        ],
+        callout:
+          'No queremos que simplemente mires un recuerdo. Queremos que vuelvas a estar ahí.',
+        image: {
+          src: filmacionQuinceaneraImage,
+          alt: 'Quinceañera con corona y vestido rosa posando junto a la decoración iluminada de su fiesta.',
+          width: 1024,
+          height: 683,
+          objectPosition: 'center',
+        },
+        featured: true,
+      },
+    ],
+    benefits: {
+      title: '¿Qué incluye nuestro servicio?',
+      items: [
+        {
+          title: '🎥 Filmación profesional',
+          description:
+            'Registramos los momentos más importantes de tu celebración utilizando cámaras profesionales, buscando capturar cada detalle con calidad, naturalidad y creatividad.',
+        },
+        {
+          title: '🎞️ Registro completo del evento',
+          description:
+            'Documentamos el desarrollo de tu celebración, desde los momentos más emotivos hasta los más divertidos, para conservar una memoria audiovisual de ese día tan especial.',
+        },
+        {
+          title: '🌟 Video resumen con los mejores momentos',
+          description:
+            'Creamos una pieza audiovisual que reúne los instantes más destacados de tu evento, combinando emoción, ritmo y una edición cuidada para contar tu historia.',
+        },
+        {
+          title: '🎤 Entrevistas y mensajes especiales',
+          description:
+            'Capturamos las palabras, los deseos y las emociones de familiares, amigos e invitados. Mensajes espontáneos que con el paso del tiempo se convierten en recuerdos invaluables.',
+        },
+        {
+          title: '🚁 Tomas aéreas con dron',
+          description:
+            'Incorporamos una perspectiva diferente con imágenes aéreas que permiten destacar el lugar, la ambientación y la dimensión de tu celebración, cuando las condiciones lo permiten.',
+        },
+        {
+          title: '🎨 Edición profesional',
+          description:
+            'Seleccionamos y trabajamos el material registrado, cuidando los colores, las transiciones, el ritmo narrativo y, especialmente, la relación entre imagen y sonido.',
+        },
+        {
+          title: '💾 Entrega de tus recuerdos',
+          description:
+            'Recibís el material final en formato digital, mediante un enlace de descarga o pendrive, para que puedas conservarlo, compartirlo y disfrutarlo siempre que quieras.',
+        },
+      ],
+    },
+    includes: [],
+    differentials: [
+      {
+        title: 'Mucho más que un video',
+        paragraphs: [
+          'Cada celebración tiene su propia energía, sus protagonistas y esos pequeños detalles que la hacen irrepetible.',
+          'Nuestro objetivo es capturar esa esencia sin perder la espontaneidad de los momentos reales.',
+          'No buscamos simplemente crear imágenes bonitas. Queremos que dentro de unos años puedas reproducir tu video, escuchar aquella canción, volver a sentir la emoción y recordar exactamente por qué ese día fue tan especial.',
+        ],
+        callout:
+          'Los momentos pasan. Las emociones quedan. Nosotros te ayudamos a revivirlas.',
+        image: {
+          src: filmacionBaileQuinceImage,
+          alt: 'Quinceañera bailando con su padre mientras un camarógrafo filma el momento durante la celebración.',
+          width: 1024,
+          height: 683,
+          objectPosition: 'center',
+        },
+        featured: true,
+      },
+    ],
+    gallery: [],
+    contactCta: {
+      title: '¿Listo para convertir tu celebración en una historia inolvidable?',
+      description:
+        'En PartyTime queremos acompañarte para que cada instante especial tenga un lugar en tus recuerdos. Consultanos por nuestro servicio de filmación y hagamos que tu historia perdure.',
+      label: 'Consultar por WhatsApp',
+      message:
+        'Hola PartyTime 👋 Estoy interesado/a en el servicio de Filmación y quisiera consultar disponibilidad.',
+      whatsAppEnabled: true,
+    },
+    sectionOrder: ['story', 'benefits', 'differentials'],
+    seo: {
+      title: 'Filmación de eventos | PartyTime Uruguay',
+      description:
+        'Filmación profesional para celebraciones: registro completo, video resumen, entrevistas, tomas con dron y edición que respeta el sonido original de tu evento.',
+      openGraphTitle: 'Filmación | PartyTime Uruguay',
+      openGraphDescription:
+        'Capturamos la historia de tu celebración con calidad profesional, sonido original y una edición pensada para volver a vivir cada momento.',
+      openGraphImage: filmacion.image.src,
     },
   },
 ];
