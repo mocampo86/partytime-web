@@ -1697,6 +1697,7 @@ a {
 }
 
 .site-footer p {
+  flex: 1;
   margin: 0;
   color: var(--color-text-muted);
   font-size: 0.875rem;
@@ -1705,6 +1706,8 @@ a {
 .site-footer__social {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex: 1;
   gap: 0.625rem;
 }
 
@@ -1733,26 +1736,87 @@ a {
   height: 1.125rem;
 }
 
+.site-footer__payments {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.375rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.site-footer__payments-title {
+  margin: 0;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.site-footer__payment-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.375rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__payment {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  transition: color 160ms ease;
+}
+
+.site-footer__payment:hover {
+  color: var(--color-text);
+}
+
+.site-footer__payment-mark {
+  width: auto;
+  height: 1.125rem;
+}
+
+span.site-footer__payment-mark {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.site-footer__payment-name {
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
 .whatsapp-cta {
   position: fixed;
-  right: max(1rem, env(safe-area-inset-right));
-  bottom: max(1rem, env(safe-area-inset-bottom));
+  right: max(1.5rem, env(safe-area-inset-right));
+  bottom: max(1.5rem, env(safe-area-inset-bottom));
   z-index: 20;
-  display: inline-grid;
-  width: 3.75rem;
-  height: 3.75rem;
-  overflow: hidden;
-  place-items: center;
-  border-radius: 50%;
-  filter: drop-shadow(0 0.75rem 1.5rem rgb(0 0 0 / 35%));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 25%);
   transition:
     transform 180ms ease,
-    filter 180ms ease;
+    box-shadow 180ms ease;
 }
 
 .whatsapp-cta:hover {
-  filter: drop-shadow(0 1rem 1.75rem rgb(0 0 0 / 45%));
-  transform: translateY(-0.1875rem) scale(1.04);
+  transform: translateY(-0.1875rem);
+  box-shadow: 0 0.75rem 1.75rem rgb(0 0 0 / 32%);
 }
 
 .whatsapp-cta:focus-visible {
@@ -1762,9 +1826,8 @@ a {
 
 .whatsapp-cta__icon {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 1.375rem;
+  height: 1.375rem;
 }
 
 @keyframes hero-rise-in {
@@ -1838,15 +1901,19 @@ a {
     gap: 2rem;
   }
 
+  .site-footer__payments {
+    flex-basis: 100%;
+    order: 3;
+    margin-top: 0.75rem;
+  }
+
   .hero__media {
     display: none;
   }
 
   .whatsapp-cta {
-    right: max(0.875rem, env(safe-area-inset-right));
-    bottom: max(0.875rem, env(safe-area-inset-bottom));
-    width: 3.25rem;
-    height: 3.25rem;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
   }
 }
 

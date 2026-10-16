@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react';
 import { FloatingWhatsAppCta } from '../components/FloatingWhatsAppCta';
+import { PaymentMark } from '../components/PaymentMark';
 import { SiteHeader } from '../components/SiteHeader';
 import { SocialIcon } from '../components/SocialIcon';
+import { paymentMethods } from '../data/payment-methods';
 import { socialLinks } from '../data/social-links';
 
 type SiteLayoutProps = {
@@ -23,6 +25,36 @@ export function SiteLayout({ children }: SiteLayoutProps) {
       <footer className="site-footer">
         <div className="site-footer__inner">
           <p>© {currentYear} PartyTime.</p>
+          <section
+            className="site-footer__payments"
+            aria-labelledby="site-footer-payments-title"
+          >
+            <h2
+              id="site-footer-payments-title"
+              className="site-footer__payments-title"
+            >
+              Medios de pago
+            </h2>
+            <ul className="site-footer__payment-list">
+              {paymentMethods.map((method) => (
+                <li className="site-footer__payment" key={method.id}>
+                  <PaymentMark
+                    id={method.id}
+                    className="site-footer__payment-mark"
+                  />
+                  <span
+                    className={
+                      method.id === 'mercadopago'
+                        ? 'site-footer__payment-name'
+                        : 'visually-hidden'
+                    }
+                  >
+                    {method.label}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
           <nav className="site-footer__social" aria-label="Redes sociales de PartyTime">
             {socialLinks.map((link) => (
               <a
