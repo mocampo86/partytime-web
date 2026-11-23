@@ -5,9 +5,10 @@ export function ShareInvitation({ invitation }: { invitation: Invitation }) {
   const [status, setStatus] = useState<string | null>(null);
   const title = invitation.seo?.openGraphTitle ?? `${invitation.event.title} de ${invitation.event.hostName}`;
   const text = invitation.seo?.openGraphDescription ?? invitation.event.subtitle ?? 'Te invito a celebrar conmigo.';
-  const url = window.location.href;
 
   const share = async () => {
+    const url = window.location.href;
+
     if (navigator.share) {
       try {
         await navigator.share({ title, text, url });

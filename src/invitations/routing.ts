@@ -1,3 +1,5 @@
+import { isReservedInvitationPath } from './reservedPaths';
+
 export type InvitationRoute =
   | { kind: 'catalog' }
   | { kind: 'demo'; templateId: string }
@@ -5,7 +7,6 @@ export type InvitationRoute =
   | { kind: 'invitation-not-found' }
   | { kind: 'not-found' };
 
-const EXISTING_SINGLE_SEGMENT_PATHS = new Set(['/', '/contacto', '/consultar-disponibilidad']);
 const SINGLE_SEGMENT_PATTERN = /^\/[^/]+$/;
 
 export function normalizePathname(pathname: string) {
@@ -24,13 +25,6 @@ export function resolveInvitationRoute(
 ): InvitationRoute {
   const normalizedPath = normalizePathname(pathname);
 
-  if (
-    EXISTING_SINGLE_SEGMENT_PATHS.has(normalizedPath) ||
-    normalizedPath.startsWith('/servicios/')
-  ) {
-    return { kind: 'not-found' };
-  }
-
   if (normalizedPath === '/invitaciones') {
     return { kind: 'catalog' };
   }
@@ -42,7 +36,7 @@ export function resolveInvitationRoute(
       : { kind: 'not-found' };
   }
 
-  if (normalizedPath.startsWith('/invitaciones/')) {
+  if (isReservedInvitationPath(normalizedPath)) {
     return { kind: 'not-found' };
   }
 

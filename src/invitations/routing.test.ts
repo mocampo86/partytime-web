@@ -5,22 +5,27 @@ const publishedSlugs = ['20261128-XVGuada'];
 const templateIds = ['rose-gold'];
 
 describe('resolveInvitationRoute', () => {
-  it('mantiene la precedencia de las rutas existentes', () => {
-    ['/', '/contacto', '/consultar-disponibilidad', '/servicios/fotografia'].forEach(
-      (pathname) => {
-        expect(resolveInvitationRoute(pathname, publishedSlugs, publishedSlugs, templateIds)).toEqual({
-          kind: 'not-found',
-        });
-      },
-    );
+  it('mantiene la precedencia de todas las rutas y recursos reservados', () => {
+    [
+      '/',
+      '/contacto',
+      '/consultar-disponibilidad',
+      '/servicios',
+      '/servicios/fotografia',
+      '/assets/invitations/rose-gold/preview.svg',
+      '/favicon.ico',
+      '/staticwebapp.config.json',
+    ].forEach((pathname) => {
+      expect(resolveInvitationRoute(pathname, publishedSlugs, publishedSlugs, templateIds)).toEqual({
+        kind: 'not-found',
+      });
+    });
   });
 
-  it('resuelve catálogo y demo válidos', () => {
+  it('resuelve catálogo y demo válidos antes de descartar el prefijo reservado', () => {
     expect(
       resolveInvitationRoute('/invitaciones', publishedSlugs, publishedSlugs, templateIds),
-    ).toEqual({
-      kind: 'catalog',
-    });
+    ).toEqual({ kind: 'catalog' });
     expect(
       resolveInvitationRoute('/invitaciones/demo/rose-gold', publishedSlugs, publishedSlugs, templateIds),
     ).toEqual({ kind: 'demo', templateId: 'rose-gold' });
@@ -34,16 +39,11 @@ describe('resolveInvitationRoute', () => {
 
   it('identifica un slug existente pero no publicado', () => {
     expect(
-      resolveInvitationRoute(
-        '/evento-borrador',
-        ['evento-borrador'],
-        publishedSlugs,
-        templateIds,
-      ),
+      resolveInvitationRoute('/evento-borrador', ['evento-borrador'], publishedSlugs, templateIds),
     ).toEqual({ kind: 'invitation-not-found' });
   });
 
-  it('rechaza invitaciones inexistentes, templates desconocidos y rutas reservadas', () => {
+  it('rechaza invitaciones inexistentes, templates desconocidos y prefijos internos', () => {
     [
       '/otra-invitacion',
       '/invitaciones/demo/no-existe',

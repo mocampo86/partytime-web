@@ -51,7 +51,7 @@ export default function RoseGoldTemplate({ invitation, isDemo = false }: Invitat
         <CollaborativePlaylist url={content?.collaborativePlaylistUrl} />
       ) : null}
       {features.partyPic ? <PartyPicAccess url={content?.partyPicUrl} /> : null}
-      {features.rsvp ? <RSVPForm config={invitation.rsvp} /> : null}
+      {isDemo && features.rsvp ? <RSVPForm config={invitation.rsvp} /> : null}
       {features.share ? <ShareInvitation invitation={invitation} /> : null}
     </article>
   );

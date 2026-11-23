@@ -1,3 +1,4 @@
+import { isReservedInvitationSlug } from '../../invitations/reservedPaths';
 import { invitationTemplateIds } from '../../invitations/templates/templateIds';
 import type {
   Invitation,
@@ -43,7 +44,7 @@ const RSVP_FIELDS = ['name', 'attendance', 'companions', 'message'] as const;
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/i;
 const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 const TIME_PATTERN = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
-const UTC_OFFSET_PATTERN = /^(?:\+|-)(?:0\d|1[0-4]):[0-5]\d$/;
+const UTC_OFFSET_PATTERN = /^(?:[+-](?:0\d|1[0-3]):[0-5]\d|[+-]14:00)$/;
 const HEX_COLOR_PATTERN = /^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i;
 const SAFE_FONT_FAMILY_PATTERN = /^[a-z0-9 ,"'-]+$/i;
 
@@ -386,6 +387,8 @@ export function parseInvitation(
   const slug = getString(input.slug);
   if (!slug || !SLUG_PATTERN.test(slug) || input.slug !== slug) {
     errors.push('slug es obligatorio y solo puede usar letras, números y guiones sin espacios externos.');
+  } else if (isReservedInvitationSlug(slug)) {
+    errors.push(`slug \"${slug}\" entra en conflicto con una ruta reservada.`);
   }
   const status = input.status;
   if (status !== 'draft' && status !== 'published') errors.push('status debe ser "draft" o "published".');
@@ -403,6 +406,15 @@ export function parseInvitation(
   const content = parseContent(input.content, errors);
   const seo = parseSeo(input.seo, errors);
   validateEnabledFeatures(features, event, gallery, music, rsvp, content, errors);
+
+  if (status === 'published' && event) {
+    if (!event.time) errors.push('Las invitaciones publicadas requieren event.time.');
+    if (!event.utcOffset) errors.push('Las invitaciones publicadas requieren event.utcOffset.');
+    if (!event.venueName) errors.push('Las invitaciones publicadas requieren event.venueName.');
+    if (features?.rsvp) {
+      errors.push('Las invitaciones publicadas no pueden habilitar el RSVP simulado.');
+    }
+  }
 
   if (
     errors.length ||
@@ -463,11 +475,25 @@ function loadInvitationModules(modules: Record<string, unknown>) {
 const loadedEvents = loadInvitationModules(eventModules);
 const loadedDemos = loadInvitationModules(demoModules);
 
-export const invitations = loadedEvents.invitations;
-export const demoInvitations = loadedDemos.invitations;
+const crossCollectionDuplicateSlugs = new Set(
+  [...loadedEvents.invitations, ...loadedDemos.invitations]
+    .map(({ invitation }) => invitation.slug.toLowerCase())
+    .filter((slug, index, slugs) => slugs.indexOf(slug) !== index),
+);
+
+export const invitations = loadedEvents.invitations.filter(
+  ({ invitation }) => !crossCollectionDuplicateSlugs.has(invitation.slug.toLowerCase()),
+);
+export const demoInvitations = loadedDemos.invitations.filter(
+  ({ invitation }) => !crossCollectionDuplicateSlugs.has(invitation.slug.toLowerCase()),
+);
 export const invalidInvitations = [
   ...loadedEvents.invalidInvitations,
   ...loadedDemos.invalidInvitations,
+  ...[...crossCollectionDuplicateSlugs].map((slug) => ({
+    fileName: slug,
+    errors: [`El slug "${slug}" está duplicado entre eventos y demos.`],
+  })),
 ];
 
 if (import.meta.env.DEV && invalidInvitations.length) {

@@ -9,7 +9,7 @@ import {
 } from './loadInvitations';
 
 const validInvitation = {
-  slug: '20270115-EventoDemo',
+  slug: '20270115-evento-demo',
   status: 'published',
   templateId: 'rose-gold',
   event: {
@@ -17,6 +17,9 @@ const validInvitation = {
     hostName: 'Nombre Ficticio',
     eventType: 'Cumpleaños de XV',
     date: '2027-01-15',
+    time: '21:00',
+    utcOffset: '-03:00',
+    venueName: 'Salón Ficticio',
     mapsUrl: 'https://maps.google.com/?q=Uruguay',
   },
   features: {
@@ -38,7 +41,7 @@ const validInvitation = {
 };
 
 describe('parseInvitation', () => {
-  it('acepta una configuración válida', () => {
+  it('acepta una invitación publicada con fecha, horario, offset y lugar', () => {
     const result = parseInvitation(validInvitation);
     expect(result.errors).toEqual([]);
     expect(result.invitation?.slug).toBe(validInvitation.slug);
@@ -61,6 +64,58 @@ describe('parseInvitation', () => {
     expect(result.errors).toContain('features.dressCode requiere content.dressCode.');
   });
 
+  it('requiere horario, offset y lugar para invitaciones publicadas', () => {
+    const result = parseInvitation({
+      ...validInvitation,
+      event: {
+        ...validInvitation.event,
+        time: undefined,
+        utcOffset: undefined,
+        venueName: undefined,
+      },
+    });
+
+    expect(result.invitation).toBeUndefined();
+    expect(result.errors).toContain('Las invitaciones publicadas requieren event.time.');
+    expect(result.errors).toContain('Las invitaciones publicadas requieren event.utcOffset.');
+    expect(result.errors).toContain('Las invitaciones publicadas requieren event.venueName.');
+  });
+
+  it('rechaza el RSVP simulado en invitaciones publicadas', () => {
+    const result = parseInvitation({
+      ...validInvitation,
+      features: { ...validInvitation.features, rsvp: true },
+      rsvp: { title: 'Confirmá tu asistencia' },
+    });
+
+    expect(result.invitation).toBeUndefined();
+    expect(result.errors).toContain(
+      'Las invitaciones publicadas no pueden habilitar el RSVP simulado.',
+    );
+  });
+
+  it('acepta offsets reales y rechaza offsets fuera del rango ISO', () => {
+    expect(
+      parseInvitation({
+        ...validInvitation,
+        event: { ...validInvitation.event, utcOffset: '+14:00' },
+      }).invitation,
+    ).toBeDefined();
+
+    const result = parseInvitation({
+      ...validInvitation,
+      event: { ...validInvitation.event, utcOffset: '+14:30' },
+    });
+    expect(result.invitation).toBeUndefined();
+    expect(result.errors).toContain('event.utcOffset debe tener formato +HH:MM o -HH:MM.');
+  });
+
+  it('rechaza slugs que colisionan con rutas reservadas', () => {
+    const result = parseInvitation({ ...validInvitation, slug: 'contacto' });
+    expect(result.invitation).toBeUndefined();
+    expect(result.errors).toContain('slug "contacto" entra en conflicto con una ruta reservada.');
+  });
+
   it('rechaza datos obligatorios inválidos', () => {
     const result = parseInvitation({
       ...validInvitation,
@@ -80,10 +135,11 @@ describe('parseInvitation', () => {
 });
 
 describe('carga de configuraciones', () => {
-  it('carga el evento ficticio publicado', () => {
+  it('mantiene el evento ficticio como borrador no publicado', () => {
     expect(invalidInvitations).toEqual([]);
-    expect(getInvitationBySlug('20261128-XVGuada')?.invitation.templateId).toBe('rose-gold');
     expect(invitations).toHaveLength(1);
+    expect(invitations[0].invitation.status).toBe('draft');
+    expect(getInvitationBySlug('20261128-XVGuada')).toBeUndefined();
   });
 
   it('mantiene las demos aisladas de invitaciones publicadas', () => {

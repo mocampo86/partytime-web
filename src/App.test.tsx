@@ -8,6 +8,11 @@ function renderPath(pathname: string) {
       pathname,
       search: '',
     },
+    matchMedia: () => ({
+      matches: false,
+      addEventListener: () => undefined,
+      removeEventListener: () => undefined,
+    }),
   });
 
   return renderToString(<App />);
@@ -26,7 +31,13 @@ describe('App', () => {
     expect(renderPath('/contacto')).toContain('Hablemos de tu próximo gran momento');
   });
 
-  it('usa el estado de carga de una invitación publicada en SSR', () => {
-    expect(renderPath('/20261128-XVGuada')).toContain('Cargando invitación');
+  it('mantiene las páginas actuales de inicio, disponibilidad y servicios', () => {
+    expect(renderPath('/')).toContain('PartyTime');
+    expect(renderPath('/consultar-disponibilidad')).toContain('Hagamos realidad tu próximo evento');
+    expect(renderPath('/servicios/fotografia')).toContain('Fotografía');
+  });
+
+  it('muestra 404 de invitación para el evento ficticio marcado como borrador', () => {
+    expect(renderPath('/20261128-XVGuada')).toContain('Invitación no encontrada');
   });
 });
