@@ -1,0 +1,125 @@
+.invitations-catalog__header {
+  max-width: 52rem;
+}
+
+.invitations-catalog__header h1 {
+  margin: 0.75rem 0 1.25rem;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.invitations-catalog__header > p:last-child {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: clamp(1.0625rem, 3vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.invitations-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 2.5rem;
+}
+
+.invitations-filter {
+  padding: 0.625rem 1rem;
+  border: var(--border-subtle);
+  border-radius: 999px;
+  background: rgb(var(--color-surface-rgb) / 70%);
+  color: var(--color-text-muted);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.invitations-filter:hover,
+.invitations-filter--active {
+  border-color: rgb(var(--color-primary-rgb) / 58%);
+  background: rgb(var(--color-primary-rgb) / 12%);
+  color: var(--color-text);
+}
+
+.invitations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.invitation-template-card {
+  overflow: hidden;
+  border: var(--border-subtle);
+  border-radius: var(--radius-large);
+  background: rgb(var(--color-surface-rgb) / 76%);
+  box-shadow: var(--shadow-soft);
+}
+
+.invitation-template-card > img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.invitation-template-card__content {
+  display: grid;
+  gap: 0.75rem;
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+.invitation-template-card__content > p:first-child {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.invitation-template-card h2,
+.invitation-template-card p {
+  margin: 0;
+}
+
+.invitation-template-card h2 {
+  font-size: 1.75rem;
+  letter-spacing: -0.04em;
+}
+
+.invitation-template-card p:not(:first-child) {
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.invitation-template-card__recommended {
+  font-size: 0.875rem;
+}
+
+.invitation-template-card .button {
+  width: fit-content;
+}
+
+.invitations-empty,
+.invitations-cta {
+  grid-column: 1 / -1;
+  padding: 2rem;
+  border: var(--border-subtle);
+  border-radius: var(--radius-large);
+  background: rgb(var(--color-surface-rgb) / 74%);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.invitations-cta {
+  margin-top: 2rem;
+}
+
+.invitations-cta h2 {
+  margin: 0 0 0.75rem;
+}
+
+.invitations-cta p {
+  max-width: 42rem;
+  margin: 0 auto 1.5rem;
+}
+

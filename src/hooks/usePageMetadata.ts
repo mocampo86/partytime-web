@@ -6,6 +6,7 @@ export type PageMetadata = {
   openGraphTitle?: string;
   openGraphDescription?: string;
   openGraphImage?: string;
+  robots?: string;
 };
 
 function setMeta(
@@ -38,6 +39,7 @@ export function usePageMetadata({
   openGraphTitle,
   openGraphDescription,
   openGraphImage,
+  robots,
 }: PageMetadata) {
   useEffect(() => {
     document.title = title;
@@ -54,11 +56,18 @@ export function usePageMetadata({
     } else {
       removeMeta('property', 'og:image');
     }
+
+    if (robots) {
+      setMeta('name', 'robots', robots);
+    } else {
+      removeMeta('name', 'robots');
+    }
   }, [
     title,
     description,
     openGraphTitle,
     openGraphDescription,
     openGraphImage,
+    robots,
   ]);
 }
