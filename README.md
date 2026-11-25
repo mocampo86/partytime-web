@@ -15,6 +15,7 @@ npm run dev
 npm run typecheck
 npm run build
 npm run preview
+npm run test
 ```
 
 ## Structure
@@ -36,3 +37,7 @@ src/
 ```
 
 The foundation intentionally avoids a backend, authentication, database, SSR, UI framework, CMS, analytics, and unnecessary deployment infrastructure. A minimal static-host navigation fallback is provided for future Azure Static Web Apps compatibility. The initial public language is Spanish; branding and final contact configuration will be supplied in later User Stories.
+
+## Digital invitations
+
+See `docs/invitaciones.md` for event configuration, template extension, privacy/SEO notes and the pending real RSVP integration.

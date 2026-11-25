@@ -9,6 +9,7 @@ type NavigationItem = {
 const navigationItems: readonly NavigationItem[] = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Invitaciones', href: '/invitaciones' },
   { label: 'Experiencias' },
   { label: 'Contacto', href: '/contacto' },
 ];

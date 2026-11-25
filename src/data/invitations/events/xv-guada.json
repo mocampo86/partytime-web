@@ -1,0 +1,84 @@
+{
+  "slug": "20261128-XVGuada",
+  "status": "draft",
+  "templateId": "rose-gold",
+  "event": {
+    "title": "Mis XV",
+    "hostName": "Guadalupe",
+    "subtitle": "Una noche para celebrar y guardar para siempre",
+    "eventType": "Cumpleaños de XV",
+    "date": "2026-11-28",
+    "time": "21:00",
+    "venueName": "Salón Dorado",
+    "locationLabel": "Maldonado, Uruguay",
+    "mapsUrl": "https://maps.google.com/?q=Maldonado%2C%20Uruguay",
+    "notes": "Los datos de esta invitación son ficticios y se usan solo para demostración.",
+    "utcOffset": "-03:00"
+  },
+  "theme": {
+    "accentColor": "#b76e79",
+    "backgroundColor": "#fffaf5",
+    "fontFamily": "Georgia, 'Times New Roman', serif"
+  },
+  "features": {
+    "opening": true,
+    "music": true,
+    "countdown": true,
+    "eventDetails": true,
+    "location": true,
+    "gallery": true,
+    "rsvp": true,
+    "dressCode": true,
+    "gifts": true,
+    "accommodation": false,
+    "transport": false,
+    "collaborativePlaylist": false,
+    "partyPic": false,
+    "share": true
+  },
+  "gallery": {
+    "eyebrow": "Recuerdos",
+    "title": "Momentos que anticipan la noche",
+    "images": [
+      {
+        "src": "/assets/invitations/rose-gold/gallery-01.svg",
+        "alt": "Retrato ilustrado de una celebración de quince años"
+      },
+      {
+        "src": "/assets/invitations/rose-gold/gallery-02.svg",
+        "alt": "Detalles rosa y dorado de una mesa de XV años"
+      },
+      {
+        "src": "/assets/invitations/rose-gold/gallery-03.svg",
+        "alt": "Ilustración de baile y brindis de la celebración"
+      }
+    ]
+  },
+  "music": {
+    "title": "Canción de la noche",
+    "artist": "Música por confirmar",
+    "unavailableLabel": "La música de esta demostración estará disponible cuando se cargue el archivo final."
+  },
+  "rsvp": {
+    "title": "Confirmá tu asistencia",
+    "description": "Demostración visual: las respuestas no se guardan ni se envían.",
+    "deadline": "2026-11-01",
+    "fields": [
+      "name",
+      "attendance",
+      "companions",
+      "message"
+    ]
+  },
+  "content": {
+    "dressCode": "Elegante soirée",
+    "giftInfo": "Tu presencia es el mejor regalo. Si deseás acompañar con un detalle, habrá un buzón especial en la recepción."
+  },
+  "seo": {
+    "title": "Invitación de XV | PartyTime",
+    "description": "Invitación digital personalizada creada por PartyTime.",
+    "openGraphTitle": "Invitación digital de XV años",
+    "openGraphDescription": "Una invitación digital personalizada para celebrar una fecha especial.",
+    "openGraphImage": "/assets/invitations/rose-gold/preview.svg"
+  }
+}

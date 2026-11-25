@@ -1,0 +1,28 @@
+import { describe, expect, it } from 'vitest';
+import { getCountdownParts, getCountdownTarget } from './Countdown';
+
+describe('getCountdownParts', () => {
+  it('calcula días, horas, minutos y segundos', () => {
+    expect(
+      getCountdownParts(
+        new Date('2027-01-02T03:04:05Z'),
+        new Date('2027-01-01T00:00:00Z'),
+      ),
+    ).toEqual({ days: 1, hours: 3, minutes: 4, seconds: 5 });
+  });
+
+  it('interpreta la hora del evento con el offset configurado', () => {
+    expect(getCountdownTarget('2027-01-01', '21:00', '-03:00').toISOString()).toBe(
+      '2027-01-02T00:00:00.000Z',
+    );
+  });
+
+  it('no produce valores negativos después de la fecha', () => {
+    expect(
+      getCountdownParts(
+        new Date('2027-01-01T00:00:00Z'),
+        new Date('2027-01-02T00:00:00Z'),
+      ),
+    ).toEqual({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  });
+});
