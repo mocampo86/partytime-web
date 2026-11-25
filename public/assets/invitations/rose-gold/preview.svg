@@ -1,9 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff8f0"/><stop offset=".55" stop-color="#f6d9dc"/><stop offset="1" stop-color="#c8956d"/></linearGradient></defs>
-  <rect width="1200" height="630" fill="url(#g)"/>
-  <circle cx="150" cy="120" r="150" fill="#fff" opacity=".35"/><circle cx="1080" cy="540" r="190" fill="#fff" opacity=".28"/>
-  <rect x="230" y="95" width="740" height="440" rx="34" fill="#fffaf5" opacity=".84"/>
-  <text x="600" y="250" fill="#b76e79" font-family="Georgia,serif" font-size="92" text-anchor="middle">Mis XV</text>
-  <text x="600" y="325" fill="#7a4c50" font-family="Georgia,serif" font-size="42" text-anchor="middle">Guadalupe</text>
-  <text x="600" y="405" fill="#a8744f" font-family="Arial,sans-serif" font-size="28" text-anchor="middle">INVITACIÓN DIGITAL</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="preview-title preview-desc">
+  <title id="preview-title">Vista previa Rose Gold</title>
+  <desc id="preview-desc">Portada de invitación premium en marfil, rosa y dorado.</desc>
+  <defs>
+    <linearGradient id="preview-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffaf5"/>
+      <stop offset="0.58" stop-color="#f3d7db"/>
+      <stop offset="1" stop-color="#b76e79"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#preview-bg)"/>
+  <circle cx="120" cy="95" r="150" fill="#fffaf5" opacity=".35"/>
+  <circle cx="1080" cy="535" r="190" fill="#fffaf5" opacity=".24"/>
+  <rect x="222" y="76" width="756" height="478" rx="46" fill="#fffaf5" opacity=".86"/>
+  <rect x="248" y="102" width="704" height="426" rx="32" fill="none" stroke="#d7a45b" stroke-width="4" opacity=".65"/>
+  <text x="600" y="220" fill="#b76e79" font-family="Georgia,serif" font-size="54" font-style="italic" text-anchor="middle">Mis XV</text>
+  <text x="600" y="340" fill="#4b3034" font-family="Georgia,serif" font-size="122" text-anchor="middle">Guadalupe</text>
+  <path d="M430 405h340" stroke="#d7a45b" stroke-width="4" stroke-linecap="round"/>
+  <text x="600" y="455" fill="#8d666d" font-family="Arial,sans-serif" font-size="27" font-weight="700" letter-spacing="6" text-anchor="middle">INVITACIÓN DIGITAL</text>
 </svg>

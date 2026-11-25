@@ -42,15 +42,21 @@
     "images": [
       {
         "src": "/assets/invitations/rose-gold/gallery-01.svg",
-        "alt": "Retrato ilustrado de una celebración de quince años"
+        "alt": "Ilustración editorial de una quinceañera con marco dorado",
+        "width": 900,
+        "height": 1200
       },
       {
         "src": "/assets/invitations/rose-gold/gallery-02.svg",
-        "alt": "Detalles rosa y dorado de una mesa de XV años"
+        "alt": "Ilustración editorial de una mesa de XV años con detalles dorados",
+        "width": 900,
+        "height": 1200
       },
       {
         "src": "/assets/invitations/rose-gold/gallery-03.svg",
-        "alt": "Ilustración de baile y brindis de la celebración"
+        "alt": "Ilustración editorial de un vals sobre fondo rosa oscuro",
+        "width": 900,
+        "height": 1200
       }
     ]
   },

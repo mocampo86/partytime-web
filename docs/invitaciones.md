@@ -64,7 +64,21 @@ El motor de rutas y páginas no necesita modificarse para un template adicional:
 
 ## Música
 
-Los navegadores exigen una interacción explícita antes de reproducir audio. `MusicPlayer` nunca inicia solo: muestra Reproducir/Pausar y Silenciar cuando `music.src` existe. En la demo actual no hay un archivo musical aprobado; por eso el componente muestra un estado deshabilitado hasta agregar un asset local o URL segura.
+Los navegadores exigen una interacción explícita antes de reproducir audio. `MusicPlayer` nunca inicia solo: muestra Reproducir/Pausar y Silenciar cuando `music.src` existe. Puede agregarse `"loop": false` para que una pista autorizada termine sin repetirse. En la demo actual no hay un archivo musical aprobado; por eso el componente muestra un estado deshabilitado hasta agregar un asset local o URL segura.
+
+## Imágenes de Rose Gold
+
+Rose Gold usa la primera imagen de `gallery.images` como retrato hero para conservar compatibilidad con los JSON actuales. Las demás imágenes se muestran en la galería editorial y cargan de forma diferida. El retrato hero es la única imagen de invitación que usa carga prioritaria; conservar `width`, `height`, `srcSet` y `sizes` cuando estén disponibles.
+
+## Assets pendientes de Rose Gold
+
+La demo usa ilustraciones SVG creadas para el repositorio en `public/assets/invitations/rose-gold/`. Para completar la experiencia fotográfica quedan pendientes, con licencia verificada para uso comercial:
+
+- Retrato vertical principal de muestra, preferiblemente WebP/AVIF alrededor de 900 × 1200.
+- De 3 a 5 imágenes editoriales adicionales con dimensiones, textos alternativos y, si corresponde, `srcSet`/`sizes`/`objectPosition`.
+- Opcionalmente, un archivo de audio autorizado con derechos claros de reproducción web.
+
+Reemplazar los `src` en los JSON conservando rutas locales. Agregar `width`/`height` para evitar saltos de layout y, opcionalmente, `srcSet`/`sizes`/`objectPosition` para mejorar la carga y el encuadre. No incorporar fotografías de clientes ni canciones comerciales sin autorización documentada.
 
 ## RSVP real pendiente
 

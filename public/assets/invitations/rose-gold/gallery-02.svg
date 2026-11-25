@@ -1,1 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200"><rect width="900" height="1200" fill="#fff8f0"/><rect x="100" y="280" width="700" height="650" rx="36" fill="#fff" stroke="#d9b48a" stroke-width="8"/><circle cx="450" cy="480" r="170" fill="#f1c5cc"/><text x="450" y="540" fill="#b76e79" font-family="Georgia,serif" font-size="170" text-anchor="middle">XV</text><path d="M190 800h520" stroke="#d7a45b" stroke-width="10" stroke-dasharray="1 24" stroke-linecap="round"/><circle cx="250" cy="170" r="55" fill="#e8aeb7" opacity=".65"/><circle cx="650" cy="150" r="80" fill="#e8aeb7" opacity=".35"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="gallery-02-title gallery-02-desc">
+  <title id="gallery-02-title">Ilustración editorial de la celebración</title>
+  <desc id="gallery-02-desc">Mesa de XV años con flores, líneas doradas y monograma.</desc>
+  <defs>
+    <linearGradient id="gallery-02-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffaf5"/>
+      <stop offset="1" stop-color="#efd1d5"/>
+    </linearGradient>
+    <filter id="gallery-02-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#gallery-02-bg)"/>
+  <circle cx="708" cy="180" r="170" fill="#e8aeb7" opacity=".25" filter="url(#gallery-02-soft)"/>
+  <circle cx="190" cy="944" r="185" fill="#d7a45b" opacity=".14" filter="url(#gallery-02-soft)"/>
+  <rect x="112" y="188" width="676" height="826" rx="42" fill="#fffaf5" opacity=".72" stroke="#d7a45b" stroke-width="5"/>
+  <rect x="140" y="216" width="620" height="770" rx="28" fill="none" stroke="#b76e79" stroke-width="2" opacity=".3"/>
+  <path d="M220 778h460" stroke="#d7a45b" stroke-width="8" stroke-linecap="round" opacity=".62"/>
+  <path d="M278 780c-8-118 46-220 112-283M622 780c8-118-46-220-112-283" fill="none" stroke="#b76e79" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+  <ellipse cx="390" cy="512" rx="118" ry="82" fill="#e8aeb7" opacity=".82"/>
+  <ellipse cx="510" cy="512" rx="118" ry="82" fill="#e8aeb7" opacity=".58"/>
+  <circle cx="450" cy="530" r="92" fill="#b76e79" opacity=".82"/>
+  <text x="450" y="575" fill="#fffaf5" font-family="Georgia,serif" font-size="92" text-anchor="middle">XV</text>
+  <path d="M255 340c80-52 143-52 195 0s115 52 195 0" fill="none" stroke="#d7a45b" stroke-width="6" stroke-linecap="round" opacity=".65"/>
+  <path d="M270 884h360" stroke="#e8aeb7" stroke-width="10" stroke-dasharray="1 24" stroke-linecap="round"/>
+  <circle cx="450" cy="900" r="10" fill="#d7a45b"/>
+</svg>

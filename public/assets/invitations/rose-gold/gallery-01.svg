@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200"><rect width="900" height="1200" fill="#fff3ee"/><circle cx="450" cy="390" r="190" fill="#e8aeb7"/><path d="M185 1010C290 735 610 735 715 1010Z" fill="#b76e79"/><circle cx="450" cy="350" r="145" fill="#f6d9c6"/><path d="M285 330c10-170 320-170 330 0l-60 35c-60-90-150-90-210 0Z" fill="#6f4a3f"/><circle cx="392" cy="365" r="15" fill="#3d2522"/><circle cx="508" cy="365" r="15" fill="#3d2522"/><path d="M385 455c45 45 85 45 130 0" fill="none" stroke="#b76e79" stroke-width="16" stroke-linecap="round"/><path d="M450 740l90 95-90 95-90-95Z" fill="#d7a45b" opacity=".7"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="gallery-01-title gallery-01-desc">
+  <title id="gallery-01-title">Ilustración editorial de quinceañera</title>
+  <desc id="gallery-01-desc">Retrato estilizado en rosa empolvado con marco ornamental dorado.</desc>
+  <defs>
+    <linearGradient id="gallery-01-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffaf5"/>
+      <stop offset="0.58" stop-color="#f7dfe2"/>
+      <stop offset="1" stop-color="#d8a0a9"/>
+    </linearGradient>
+    <linearGradient id="gallery-01-dress" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4c7cf"/>
+      <stop offset="1" stop-color="#b76e79"/>
+    </linearGradient>
+    <filter id="gallery-01-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#gallery-01-bg)"/>
+  <circle cx="158" cy="142" r="150" fill="#fffaf5" opacity=".42" filter="url(#gallery-01-soft)"/>
+  <circle cx="760" cy="1020" r="210" fill="#d7a45b" opacity=".13" filter="url(#gallery-01-soft)"/>
+  <rect x="76" y="76" width="748" height="1048" rx="260" fill="none" stroke="#d7a45b" stroke-width="7" opacity=".62"/>
+  <rect x="102" y="102" width="696" height="996" rx="236" fill="none" stroke="#b76e79" stroke-width="2" opacity=".34"/>
+  <path d="M450 262c105 0 170 66 170 158 0 119-80 169-170 169s-170-50-170-169c0-92 65-158 170-158Z" fill="#f4d0c7"/>
+  <path d="M283 419c-14-172 87-248 167-248s181 76 167 248c-44-84-90-126-167-126s-123 42-167 126Z" fill="#70473f"/>
+  <path d="M256 1012c35-263 117-379 194-379s159 116 194 379H256Z" fill="url(#gallery-01-dress)"/>
+  <path d="M326 760c70 58 178 58 248 0" fill="none" stroke="#fffaf5" stroke-width="12" stroke-linecap="round" opacity=".78"/>
+  <path d="M235 896c85-58 145-58 230-10M435 886c85-48 145-48 230 10" fill="none" stroke="#d7a45b" stroke-width="7" stroke-linecap="round" opacity=".72"/>
+  <path d="M165 784c44-30 60-82 51-137M735 784c-44-30-60-82-51-137" fill="none" stroke="#b76e79" stroke-width="9" stroke-linecap="round" opacity=".45"/>
+  <circle cx="450" cy="216" r="12" fill="#d7a45b"/>
+</svg>

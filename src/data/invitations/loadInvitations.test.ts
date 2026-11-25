@@ -53,6 +53,51 @@ describe('parseInvitation', () => {
     expect(result.invitation).not.toHaveProperty('internalNote');
   });
 
+  it('conserva dimensiones válidas para evitar saltos de layout', () => {
+    const result = parseInvitation({
+      ...validInvitation,
+      features: { ...validInvitation.features, gallery: true },
+      gallery: {
+        title: 'Galería',
+        images: [
+          {
+            src: '/assets/invitations/rose-gold/gallery-01.svg',
+            srcSet: '/assets/invitations/rose-gold/gallery-01.svg 1x',
+            sizes: '(min-width: 48rem) 34vw, 78vw',
+            objectPosition: '50% 35%',
+            alt: 'Retrato editorial de muestra',
+            width: 900,
+            height: 1200,
+          },
+        ],
+      },
+    });
+
+    expect(result.errors).toEqual([]);
+    expect(result.invitation?.gallery?.images[0]).toMatchObject({
+      srcSet: '/assets/invitations/rose-gold/gallery-01.svg 1x',
+      sizes: '(min-width: 48rem) 34vw, 78vw',
+      objectPosition: '50% 35%',
+      width: 900,
+      height: 1200,
+    });
+  });
+
+  it('acepta una configuración de reproducción no repetida para música autorizada', () => {
+    const result = parseInvitation({
+      ...validInvitation,
+      features: { ...validInvitation.features, music: true },
+      music: {
+        title: 'Vals autorizado',
+        src: '/assets/invitations/rose-gold/vals.mp3',
+        loop: false,
+      },
+    });
+
+    expect(result.errors).toEqual([]);
+    expect(result.invitation?.music).toMatchObject({ loop: false });
+  });
+
   it('rechaza features habilitadas sin la configuración requerida', () => {
     const result = parseInvitation({
       ...validInvitation,
