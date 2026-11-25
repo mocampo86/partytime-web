@@ -53,6 +53,30 @@ describe('parseInvitation', () => {
     expect(result.invitation).not.toHaveProperty('internalNote');
   });
 
+  it('conserva dimensiones válidas para evitar saltos de layout', () => {
+    const result = parseInvitation({
+      ...validInvitation,
+      features: { ...validInvitation.features, gallery: true },
+      gallery: {
+        title: 'Galería',
+        images: [
+          {
+            src: '/assets/invitations/rose-gold/gallery-01.svg',
+            alt: 'Retrato editorial de muestra',
+            width: 900,
+            height: 1200,
+          },
+        ],
+      },
+    });
+
+    expect(result.errors).toEqual([]);
+    expect(result.invitation?.gallery?.images[0]).toMatchObject({
+      width: 900,
+      height: 1200,
+    });
+  });
+
   it('rechaza features habilitadas sin la configuración requerida', () => {
     const result = parseInvitation({
       ...validInvitation,

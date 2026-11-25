@@ -66,6 +66,16 @@ El motor de rutas y páginas no necesita modificarse para un template adicional:
 
 Los navegadores exigen una interacción explícita antes de reproducir audio. `MusicPlayer` nunca inicia solo: muestra Reproducir/Pausar y Silenciar cuando `music.src` existe. En la demo actual no hay un archivo musical aprobado; por eso el componente muestra un estado deshabilitado hasta agregar un asset local o URL segura.
 
+## Assets pendientes de Rose Gold
+
+La demo usa ilustraciones SVG creadas para el repositorio en `public/assets/invitations/rose-gold/`. Para completar la experiencia fotográfica quedan pendientes, con licencia verificada para uso comercial:
+
+- Retrato vertical principal de muestra, preferiblemente WebP/AVIF alrededor de 900 × 1200.
+- De 3 a 5 imágenes editoriales adicionales con sus dimensiones y textos alternativos.
+- Opcionalmente, un archivo de audio autorizado con derechos claros de reproducción web.
+
+Reemplazar los `src` en los JSON conservando rutas locales y agregando `width`/`height` para evitar saltos de layout. No incorporar fotografías de clientes ni canciones comerciales sin autorización documentada.
+
 ## RSVP real pendiente
 
 `RSVPForm` es una demostración visual y no persiste ni envía respuestas. Para producción falta:

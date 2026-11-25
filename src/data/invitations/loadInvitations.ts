@@ -118,6 +118,18 @@ function isValidEventDate(value: string) {
   return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
 }
 
+function parseImageDimension(value: unknown, path: string, errors: string[]) {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (typeof value === 'number' && Number.isInteger(value) && value > 0) {
+    return value;
+  }
+
+  errors.push(`${path} debe ser un entero positivo.`);
+  return undefined;
+}
+
 function parseImage(value: unknown, path: string, errors: string[]): InvitationImage | undefined {
   if (!isRecord(value)) {
     errors.push(`${path} debe ser un objeto de imagen.`);
@@ -130,7 +142,17 @@ function parseImage(value: unknown, path: string, errors: string[]): InvitationI
     errors.push(`${path}.alt debe ser texto no vacío.`);
   }
 
-  return src && alt ? { src, alt } : undefined;
+  const width = parseImageDimension(value.width, `${path}.width`, errors);
+  const height = parseImageDimension(value.height, `${path}.height`, errors);
+
+  return src && alt
+    ? {
+        src,
+        alt,
+        ...(width ? { width } : {}),
+        ...(height ? { height } : {}),
+      }
+    : undefined;
 }
 
 function parseFeatures(value: unknown, errors: string[]): InvitationFeatures | undefined {
