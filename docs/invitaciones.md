@@ -70,15 +70,22 @@ Los navegadores exigen una interacción explícita antes de reproducir audio. `M
 
 Rose Gold usa la primera imagen de `gallery.images` como retrato hero para conservar compatibilidad con los JSON actuales. Las demás imágenes se muestran en la galería editorial y cargan de forma diferida. El retrato hero es la única imagen de invitación que usa carga prioritaria; conservar `width`, `height`, `srcSet` y `sizes` cuando estén disponibles.
 
-## Assets pendientes de Rose Gold
+## Assets de Rose Gold
 
-La demo usa ilustraciones SVG creadas para el repositorio en `public/assets/invitations/rose-gold/`. Para completar la experiencia fotográfica quedan pendientes, con licencia verificada para uso comercial:
+La demo comercial usa imágenes WebP servidas desde `public/assets/invitations/rose-gold/`:
 
-- Retrato vertical principal de muestra, preferiblemente WebP/AVIF alrededor de 900 × 1200.
-- De 3 a 5 imágenes editoriales adicionales con dimensiones, textos alternativos y, si corresponde, `srcSet`/`sizes`/`objectPosition`.
-- Opcionalmente, un archivo de audio autorizado con derechos claros de reproducción web.
+- `hero-900x1200.webp` y `hero-1800x2400.webp` — retrato hero responsivo (`srcSet` con ambas variantes, `objectPosition: 50% 42%`).
+- `full-body.webp`, `details.webp`, `venue.webp` — galería editorial (1200 × 1600, carga diferida).
+- `social-preview-1200x630.webp` — preview del catálogo y metadata social.
+- `gallery-01..03.svg` y `preview.svg` — placeholders anteriores conservados como respaldo.
 
-Reemplazar los `src` en los JSON conservando rutas locales. Agregar `width`/`height` para evitar saltos de layout y, opcionalmente, `srcSet`/`sizes`/`objectPosition` para mejorar la carga y el encuadre. No incorporar fotografías de clientes ni canciones comerciales sin autorización documentada.
+Procedencia: las imágenes fueron generadas con OpenAI ImageGen para esta demo y no representan personas ni eventos reales. El manifiesto de origen con dimensiones, textos alternativos y posiciones sugeridas vive en `src/assets/rose-gold/` (`manifest.json` y `README.md`). El uso queda sujeto a los términos aplicables de OpenAI; no hay licencia de terceros ni garantía de exclusividad.
+
+Para reemplazar o ampliar la galería: agregar los archivos optimizados en `public/assets/invitations/rose-gold/`, referenciarlos con rutas que comiencen en `/` en los JSON y completar `width`/`height` para evitar saltos de layout, más `srcSet`/`sizes`/`objectPosition` cuando corresponda. La primera imagen de `gallery.images` es siempre el retrato hero (carga prioritaria); el resto forma la galería editorial (carga diferida). No incorporar fotografías de clientes ni canciones comerciales sin autorización documentada.
+
+### Música pendiente
+
+No se suministró audio con licencia verificada, por lo que la demo mantiene el estado "música por confirmar" sin `music.src`. Cuando exista un archivo autorizado, copiarlo a `public/assets/invitations/rose-gold/` y configurar `music.src` (y `"loop": false` si no debe repetirse).
 
 ## RSVP real pendiente
 

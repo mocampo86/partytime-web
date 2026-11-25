@@ -1,0 +1,47 @@
+{
+  "bundle": "Rose Gold — demo visual",
+  "origin": "Imágenes generadas con OpenAI ImageGen para esta conversación; recortadas y optimizadas localmente. No son fotografías de personas ni eventos reales.",
+  "rights_note": "Consultar las condiciones de uso de OpenAI aplicables a las imágenes generadas. No se adjunta una licencia de terceros ni se garantiza exclusividad.",
+  "audio": {
+    "included": false,
+    "note": "No se suministró audio ni se ha verificado licencia de música."
+  },
+  "assets": [
+    {
+      "file": "hero-900x1200.webp",
+      "dimensions": "900x1200",
+      "alt": "Retrato de quinceañera ficticia con vestido rosa y tiara en jardín iluminado al atardecer.",
+      "objectPosition": "50% 42%"
+    },
+    {
+      "file": "hero-1800x2400.webp",
+      "dimensions": "1800x2400",
+      "alt": "Retrato de quinceañera ficticia con vestido rosa y tiara en jardín iluminado al atardecer.",
+      "objectPosition": "50% 42%"
+    },
+    {
+      "file": "full-body.webp",
+      "dimensions": "1200x1600",
+      "alt": "Quinceañera ficticia con vestido rosa largo posando en un jardín con flores.",
+      "objectPosition": "50% 50%"
+    },
+    {
+      "file": "details.webp",
+      "dimensions": "1200x1600",
+      "alt": "Pastel de celebración y rosas en tonos rosados con velas decorativas.",
+      "objectPosition": "50% 50%"
+    },
+    {
+      "file": "venue.webp",
+      "dimensions": "1200x1600",
+      "alt": "Salón de fiesta elegante con mesas, flores rosas e iluminación cálida.",
+      "objectPosition": "50% 50%"
+    },
+    {
+      "file": "social-preview-1200x630.webp",
+      "dimensions": "1200x630",
+      "alt": "Vista previa de invitación Rose Gold con retrato y fondo rosa empolvado.",
+      "objectPosition": "center"
+    }
+  ]
+}

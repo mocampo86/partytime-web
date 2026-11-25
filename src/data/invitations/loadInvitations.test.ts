@@ -193,6 +193,23 @@ describe('carga de configuraciones', () => {
     expect(invitations.some(({ invitation }) => invitation.slug === 'demo-rose-gold')).toBe(false);
   });
 
+  it('conserva los metadatos responsivos de la galería comercial de la demo', () => {
+    const demo = getDemoInvitationByTemplateId('rose-gold');
+    const hero = demo?.invitation.gallery?.images[0];
+
+    expect(demo).toBeDefined();
+    expect(demo?.invitation.gallery?.images).toHaveLength(4);
+    expect(hero).toMatchObject({
+      src: '/assets/invitations/rose-gold/hero-900x1200.webp',
+      sizes: '(min-width: 48rem) 34vw, 78vw',
+      objectPosition: '50% 42%',
+      width: 900,
+      height: 1200,
+    });
+    expect(hero?.srcSet).toContain('hero-1800x2400.webp 1800w');
+    expect(demo?.invitation.music?.src).toBeUndefined();
+  });
+
   it('no publica slugs inexistentes', () => {
     expect(getInvitationBySlug('no-existe')).toBeUndefined();
   });

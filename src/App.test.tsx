@@ -23,8 +23,13 @@ afterEach(() => {
 });
 
 describe('App', () => {
-  it('renderiza el catálogo comercial', () => {
-    expect(renderPath('/invitaciones')).toContain('Una invitación tan especial como tu evento');
+  it('renderiza el catálogo comercial con la presentación Rose Gold', () => {
+    const markup = renderPath('/invitaciones');
+
+    expect(markup).toContain('Una invitación tan especial como tu evento');
+    expect(markup).toContain('Rose Gold');
+    expect(markup).toContain('/assets/invitations/rose-gold/social-preview-1200x630.webp');
+    expect(markup).toContain('Ver demostración');
   });
 
   it('mantiene la página de contacto existente', () => {

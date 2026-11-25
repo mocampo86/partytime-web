@@ -7,13 +7,14 @@ export const invitationTemplates: readonly InvitationTemplate[] = [
     id: 'rose-gold',
     name: 'Rose Gold',
     description:
-      'Una experiencia premium para XV años con paleta rosa, marfil y dorado, apertura interactiva y secciones fluidas.',
+      'Una experiencia premium para XV años con portada animada, retrato protagonista, cuenta regresiva, galería editorial, música opcional y confirmación de asistencia.',
     category: 'xv-anos',
     categoryLabel: 'XV años',
-    recommendedFor: 'Celebraciones de XV y cumpleaños elegantes',
+    recommendedFor:
+      'Celebraciones de XV que buscan una invitación elegante, emocional y lista para compartir por WhatsApp',
     previewImage: {
-      src: '/assets/invitations/rose-gold/preview.svg',
-      alt: 'Vista previa del template Rose Gold',
+      src: '/assets/invitations/rose-gold/social-preview-1200x630.webp',
+      alt: 'Vista previa del template Rose Gold con retrato de quinceañera en tonos rosa y dorado',
       width: 1200,
       height: 630,
     },

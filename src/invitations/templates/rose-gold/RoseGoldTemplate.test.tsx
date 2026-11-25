@@ -42,7 +42,7 @@ describe('RoseGoldTemplate', () => {
     expect(markup).toContain('Abrir invitación');
     expect(markup).toContain('Mis XV');
     expect(markup).toContain('Guadalupe');
-    expect(markup).toContain('dateTime="2026-11-28"');
+    expect(markup).toContain('dateTime="2027-01-16"');
     expect(markup).not.toContain('rose-gold__hero');
   });
 
@@ -64,7 +64,24 @@ describe('RoseGoldTemplate', () => {
     expect(markup).toContain('rose-gold__portrait');
     expect(markup).toContain('fetchPriority="high"');
     expect(markup).toContain('loading="lazy"');
-    expect(markup.match(/<figure class="invitation-gallery__item/g)).toHaveLength(2);
+    expect(markup.match(/<figure class="invitation-gallery__item/g)).toHaveLength(3);
+  });
+
+  it('configura el retrato hero con srcSet responsivo y metadatos del asset autorizado', () => {
+    const invitation = getDemoInvitation();
+    const hero = invitation.gallery?.images[0];
+    const markup = renderWithoutOpening(invitation);
+
+    expect(hero).toMatchObject({
+      src: '/assets/invitations/rose-gold/hero-900x1200.webp',
+      objectPosition: '50% 42%',
+      width: 900,
+      height: 1200,
+    });
+    expect(hero?.srcSet).toContain('hero-1800x2400.webp 1800w');
+    expect(markup).toContain('srcSet="/assets/invitations/rose-gold/hero-900x1200.webp 900w');
+    expect(markup).toContain('object-position:50% 42%');
+    expect(markup).not.toContain('hero-900x1200.webp" loading="lazy"');
   });
 
   it('expone controles de música compactos cuando existe un archivo autorizado', () => {
