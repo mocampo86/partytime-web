@@ -30,6 +30,7 @@ export function InvitationOpening({
   const contentRef = useRef<HTMLDivElement>(null);
   const previousOverflowRef = useRef<string | null>(null);
   const exitTimerRef = useRef<number | null>(null);
+  const isOpeningRef = useRef(false);
   const titleId = useId();
   const descriptionId = useId();
   const themeStyles = {
@@ -54,6 +55,7 @@ export function InvitationOpening({
       if (exitTimerRef.current !== null) {
         window.clearTimeout(exitTimerRef.current);
       }
+      isOpeningRef.current = false;
       restoreScroll();
     };
   }, [restoreScroll]);
@@ -99,16 +101,18 @@ export function InvitationOpening({
   }, [revealSelector, status]);
 
   const openInvitation = () => {
-    if (status !== 'closed') {
+    if (status !== 'closed' || isOpeningRef.current) {
       return;
     }
 
     const prefersReducedMotion =
       window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    isOpeningRef.current = true;
     setStatus('leaving');
     exitTimerRef.current = window.setTimeout(
       () => {
         restoreScroll();
+        isOpeningRef.current = false;
         setStatus('open');
       },
       prefersReducedMotion ? 0 : OPENING_EXIT_MS,
@@ -129,16 +133,18 @@ export function InvitationOpening({
       return;
     }
 
-    event.preventDefault();
     const currentIndex = focusableElements.indexOf(document.activeElement as HTMLElement);
-    const nextIndex =
-      currentIndex === -1
-        ? event.shiftKey
-          ? focusableElements.length - 1
-          : 0
-        : (currentIndex + (event.shiftKey ? -1 : 1) + focusableElements.length) %
-          focusableElements.length;
-    focusableElements[nextIndex].focus();
+    if (currentIndex === -1) {
+      event.preventDefault();
+      focusableElements[event.shiftKey ? focusableElements.length - 1 : 0].focus();
+      return;
+    }
+
+    const nextIndex = currentIndex + (event.shiftKey ? -1 : 1);
+    if (nextIndex < 0 || nextIndex >= focusableElements.length) {
+      event.preventDefault();
+      focusableElements[nextIndex < 0 ? focusableElements.length - 1 : 0].focus();
+    }
   };
 
   if (status === 'open') {

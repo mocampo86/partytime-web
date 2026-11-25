@@ -47,6 +47,8 @@ const TIME_PATTERN = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
 const UTC_OFFSET_PATTERN = /^(?:[+-](?:0\d|1[0-3]):[0-5]\d|[+-]14:00)$/;
 const HEX_COLOR_PATTERN = /^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i;
 const SAFE_FONT_FAMILY_PATTERN = /^[a-z0-9 ,"'-]+$/i;
+const SAFE_CSS_VALUE_PATTERN = /^[^<>{};]+$/;
+const SAFE_OBJECT_POSITION_PATTERN = /^[a-z0-9 .%-]+$/i;
 
 type RawRecord = Record<string, unknown>;
 
@@ -87,6 +89,13 @@ function isAbsoluteUrl(value: string) {
 
 function isRelativePath(value: string) {
   return value.startsWith('/') && !value.startsWith('//') && !value.includes('\\');
+}
+
+function isSafeSrcSet(value: string) {
+  return value.split(',').every((candidate) => {
+    const url = candidate.trim().split(/\s+/)[0];
+    return Boolean(url) && (isAbsoluteUrl(url) || isRelativePath(url));
+  });
 }
 
 function getUrlOrPath(value: unknown, path: string, errors: string[]) {
@@ -144,6 +153,22 @@ function parseImage(value: unknown, path: string, errors: string[]): InvitationI
 
   const width = parseImageDimension(value.width, `${path}.width`, errors);
   const height = parseImageDimension(value.height, `${path}.height`, errors);
+  const srcSet = getOptionalString(value.srcSet, `${path}.srcSet`, errors);
+  const sizes = getOptionalString(value.sizes, `${path}.sizes`, errors);
+  const objectPosition = getOptionalString(
+    value.objectPosition,
+    `${path}.objectPosition`,
+    errors,
+  );
+  const hasValidSrcSet = !srcSet || isSafeSrcSet(srcSet);
+  const hasValidSizes = !sizes || SAFE_CSS_VALUE_PATTERN.test(sizes);
+  const hasValidObjectPosition =
+    !objectPosition || SAFE_OBJECT_POSITION_PATTERN.test(objectPosition);
+  if (!hasValidSrcSet) errors.push(`${path}.srcSet contiene una URL no permitida.`);
+  if (!hasValidSizes) errors.push(`${path}.sizes contiene caracteres no permitidos.`);
+  if (!hasValidObjectPosition) {
+    errors.push(`${path}.objectPosition contiene caracteres no permitidos.`);
+  }
 
   return src && alt
     ? {
@@ -151,6 +176,9 @@ function parseImage(value: unknown, path: string, errors: string[]): InvitationI
         alt,
         ...(width ? { width } : {}),
         ...(height ? { height } : {}),
+        ...(srcSet && hasValidSrcSet ? { srcSet } : {}),
+        ...(sizes && hasValidSizes ? { sizes } : {}),
+        ...(objectPosition && hasValidObjectPosition ? { objectPosition } : {}),
       }
     : undefined;
 }

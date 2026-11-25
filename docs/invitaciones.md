@@ -71,10 +71,10 @@ Los navegadores exigen una interacción explícita antes de reproducir audio. `M
 La demo usa ilustraciones SVG creadas para el repositorio en `public/assets/invitations/rose-gold/`. Para completar la experiencia fotográfica quedan pendientes, con licencia verificada para uso comercial:
 
 - Retrato vertical principal de muestra, preferiblemente WebP/AVIF alrededor de 900 × 1200.
-- De 3 a 5 imágenes editoriales adicionales con sus dimensiones y textos alternativos.
+- De 3 a 5 imágenes editoriales adicionales con dimensiones, textos alternativos y, si corresponde, `srcSet`/`sizes`/`objectPosition`.
 - Opcionalmente, un archivo de audio autorizado con derechos claros de reproducción web.
 
-Reemplazar los `src` en los JSON conservando rutas locales y agregando `width`/`height` para evitar saltos de layout. No incorporar fotografías de clientes ni canciones comerciales sin autorización documentada.
+Reemplazar los `src` en los JSON conservando rutas locales. Agregar `width`/`height` para evitar saltos de layout y, opcionalmente, `srcSet`/`sizes`/`objectPosition` para mejorar la carga y el encuadre. No incorporar fotografías de clientes ni canciones comerciales sin autorización documentada.
 
 ## RSVP real pendiente
 

@@ -25,7 +25,7 @@ export function PhotoGallery({ gallery, variant = 'grid' }: PhotoGalleryProps) {
 
           return (
             <figure
-              key={image.src}
+              key={`${image.src}-${index}`}
               className={`invitation-gallery__item${isPriority ? ' invitation-gallery__item--featured' : ''}`}
             >
               <img
