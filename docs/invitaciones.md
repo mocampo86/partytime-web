@@ -64,7 +64,11 @@ El motor de rutas y páginas no necesita modificarse para un template adicional:
 
 ## Música
 
-Los navegadores exigen una interacción explícita antes de reproducir audio. `MusicPlayer` nunca inicia solo: muestra Reproducir/Pausar y Silenciar cuando `music.src` existe. En la demo actual no hay un archivo musical aprobado; por eso el componente muestra un estado deshabilitado hasta agregar un asset local o URL segura.
+Los navegadores exigen una interacción explícita antes de reproducir audio. `MusicPlayer` nunca inicia solo: muestra Reproducir/Pausar y Silenciar cuando `music.src` existe. Puede agregarse `"loop": false` para que una pista autorizada termine sin repetirse. En la demo actual no hay un archivo musical aprobado; por eso el componente muestra un estado deshabilitado hasta agregar un asset local o URL segura.
+
+## Imágenes de Rose Gold
+
+Rose Gold usa la primera imagen de `gallery.images` como retrato hero para conservar compatibilidad con los JSON actuales. Las demás imágenes se muestran en la galería editorial y cargan de forma diferida. El retrato hero es la única imagen de invitación que usa carga prioritaria; conservar `width`, `height`, `srcSet` y `sizes` cuando estén disponibles.
 
 ## Assets pendientes de Rose Gold
 

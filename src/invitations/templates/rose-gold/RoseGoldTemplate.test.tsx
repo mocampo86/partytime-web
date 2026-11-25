@@ -62,6 +62,8 @@ describe('RoseGoldTemplate', () => {
     const markup = renderWithoutOpening(getDemoInvitation());
 
     expect(markup).toContain('rose-gold__portrait');
+    expect(markup).toContain('fetchPriority="high"');
+    expect(markup).toContain('loading="lazy"');
     expect(markup.match(/<figure class="invitation-gallery__item/g)).toHaveLength(2);
   });
 
@@ -78,6 +80,18 @@ describe('RoseGoldTemplate', () => {
     expect(markup).toContain('src="/assets/invitations/rose-gold/theme.mp3"');
     expect(markup).toContain('aria-label="Reproducir música"');
     expect(markup).toContain('aria-label="Silenciar música"');
+  });
+
+  it('permite que una pista autorizada termine cuando loop está deshabilitado', () => {
+    const invitation = getDemoInvitation({
+      music: {
+        title: 'Vals de muestra',
+        src: '/assets/invitations/rose-gold/theme.mp3',
+        loop: false,
+      },
+    });
+
+    expect(renderWithoutOpening(invitation)).not.toContain(' loop=""');
   });
 
   it('mantiene un estado discreto cuando la música todavía no tiene archivo', () => {
@@ -126,7 +140,7 @@ describe('RoseGoldTemplate', () => {
     expect(renderWithoutOpening(invitation)).not.toContain('Confirmá tu asistencia');
   });
 
-  it('reemplaza la cuenta regresiva por un mensaje cuando llega la fecha', () => {
+  it('muestra un mensaje de agradecimiento para un evento pasado', () => {
     const invitation = getDemoInvitation({
       event: {
         ...getDemoInvitation().event,
@@ -136,8 +150,19 @@ describe('RoseGoldTemplate', () => {
     });
     const markup = renderWithoutOpening(invitation);
 
-    expect(markup).toContain('Llegó el gran día');
-    expect(markup).toContain('Hoy celebramos este momento tan esperado.');
+    expect(markup).toContain('Gracias por compartir');
+    expect(markup).toContain('Gracias por compartir este momento tan especial.');
     expect(markup).not.toContain('invitation-countdown__grid');
+  });
+
+  it('admite invitaciones sin fotografías sin renderizar retrato ni galería', () => {
+    const invitation = getDemoInvitation({
+      features: { ...getDemoInvitation().features, gallery: false },
+      gallery: undefined,
+    });
+    const markup = renderWithoutOpening(invitation);
+
+    expect(markup).not.toContain('rose-gold__portrait');
+    expect(markup).not.toContain('invitation-gallery');
   });
 });

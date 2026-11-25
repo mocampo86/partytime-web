@@ -3,9 +3,10 @@ import type { InvitationGallery } from '../../types/invitation';
 type PhotoGalleryProps = {
   gallery?: InvitationGallery;
   variant?: 'grid' | 'editorial';
+  priority?: boolean;
 };
 
-export function PhotoGallery({ gallery, variant = 'grid' }: PhotoGalleryProps) {
+export function PhotoGallery({ gallery, variant = 'grid', priority = false }: PhotoGalleryProps) {
   if (!gallery?.images.length) {
     return null;
   }
@@ -21,7 +22,7 @@ export function PhotoGallery({ gallery, variant = 'grid' }: PhotoGalleryProps) {
       </header>
       <div className="invitation-gallery__grid">
         {gallery.images.map((image, index) => {
-          const isPriority = variant === 'editorial' && index === 0;
+          const isPriority = priority && index === 0;
 
           return (
             <figure

@@ -11,7 +11,7 @@ import {
 import type { Invitation } from '../../types/invitation';
 import { formatInvitationDate } from './EventDetails';
 
-const OPENING_EXIT_MS = 760;
+const OPENING_TRANSITION_FALLBACK_MS = 900;
 
 type InvitationOpeningProps = {
   invitation: Invitation;
@@ -61,6 +61,51 @@ export function InvitationOpening({
   }, [restoreScroll]);
 
   useEffect(() => {
+    if (status !== 'leaving') {
+      return;
+    }
+
+    const overlay = overlayRef.current;
+    const finishOpening = () => {
+      if (!isOpeningRef.current) {
+        return;
+      }
+
+      if (exitTimerRef.current !== null) {
+        window.clearTimeout(exitTimerRef.current);
+        exitTimerRef.current = null;
+      }
+      restoreScroll();
+      isOpeningRef.current = false;
+      setStatus('open');
+    };
+    const prefersReducedMotion =
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+    if (!overlay || prefersReducedMotion) {
+      finishOpening();
+      return;
+    }
+
+    const onTransitionEnd = (event: TransitionEvent) => {
+      if (event.target === overlay && event.propertyName === 'opacity') {
+        finishOpening();
+      }
+    };
+
+    overlay.addEventListener('transitionend', onTransitionEnd);
+    exitTimerRef.current = window.setTimeout(finishOpening, OPENING_TRANSITION_FALLBACK_MS);
+
+    return () => {
+      overlay.removeEventListener('transitionend', onTransitionEnd);
+      if (exitTimerRef.current !== null) {
+        window.clearTimeout(exitTimerRef.current);
+        exitTimerRef.current = null;
+      }
+    };
+  }, [restoreScroll, status]);
+
+  useEffect(() => {
     if (status !== 'open') {
       return;
     }
@@ -105,18 +150,8 @@ export function InvitationOpening({
       return;
     }
 
-    const prefersReducedMotion =
-      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
     isOpeningRef.current = true;
     setStatus('leaving');
-    exitTimerRef.current = window.setTimeout(
-      () => {
-        restoreScroll();
-        isOpeningRef.current = false;
-        setStatus('open');
-      },
-      prefersReducedMotion ? 0 : OPENING_EXIT_MS,
-    );
   };
 
   const keepFocusInside = (event: KeyboardEvent<HTMLDivElement>) => {

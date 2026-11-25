@@ -7,8 +7,34 @@ type CountdownProps = {
   title?: string;
 };
 
+export type CountdownState = 'future' | 'event-day' | 'past';
+
 export function getCountdownTarget(date: string, time = '00:00', utcOffset = '-03:00') {
   return new Date(`${date}T${time}:00${utcOffset}`);
+}
+
+function getOffsetMinutes(utcOffset: string) {
+  const [, sign, hours, minutes] = /^([+-])(\d{2}):(\d{2})$/.exec(utcOffset) ?? [];
+  if (!sign || hours === undefined || minutes === undefined) {
+    return 0;
+  }
+
+  const offset = Number(hours) * 60 + Number(minutes);
+  return sign === '+' ? offset : -offset;
+}
+
+export function getCountdownState(date: string, utcOffset = '-03:00', now = new Date()): CountdownState {
+  const offsetMs = getOffsetMinutes(utcOffset) * 60_000;
+  const eventDay = date;
+  const currentEventDay = new Date(now.getTime() + offsetMs).toISOString().slice(0, 10);
+
+  if (currentEventDay < eventDay) {
+    return 'future';
+  }
+  if (currentEventDay > eventDay) {
+    return 'past';
+  }
+  return 'event-day';
 }
 
 export function getCountdownParts(target: Date, now: Date) {
@@ -27,35 +53,47 @@ export function Countdown({ date, time, utcOffset, title = 'Cuenta regresiva' }:
   const target = useMemo(() => getCountdownTarget(date, time, utcOffset), [date, time, utcOffset]);
   const [now, setNow] = useState(() => new Date());
   const parts = getCountdownParts(target, now);
-  const hasArrived = target.getTime() <= now.getTime();
+  const countdownState = getCountdownState(date, utcOffset, now);
 
   useEffect(() => {
     setNow(new Date());
-    if (target.getTime() <= Date.now()) {
+    if (getCountdownState(date, utcOffset) === 'past') {
       return;
     }
 
     const interval = window.setInterval(() => {
       const nextNow = new Date();
       setNow(nextNow);
-      if (target.getTime() <= nextNow.getTime()) {
+      if (getCountdownState(date, utcOffset, nextNow) === 'past') {
         window.clearInterval(interval);
       }
     }, 1000);
 
     return () => window.clearInterval(interval);
-  }, [target]);
+  }, [date, target, utcOffset]);
 
   return (
     <section
-      className={`invitation-card invitation-countdown${hasArrived ? ' invitation-countdown--arrived' : ''}`}
+      className={`invitation-card invitation-countdown${
+        countdownState === 'future' ? '' : ` invitation-countdown--${countdownState}`
+      }`}
       aria-labelledby="invitation-countdown-title"
     >
       <p className="invitation-eyebrow">Falta poco</p>
-      <h2 id="invitation-countdown-title">{hasArrived ? 'Llegó el gran día' : title}</h2>
-      {hasArrived ? (
+      <h2 id="invitation-countdown-title">
+        {countdownState === 'event-day'
+          ? 'Llegó el gran día'
+          : countdownState === 'past'
+            ? 'Gracias por compartir'
+            : title}
+      </h2>
+      {countdownState === 'event-day' ? (
         <p className="invitation-countdown__arrived" role="status">
           Hoy celebramos este momento tan esperado.
+        </p>
+      ) : countdownState === 'past' ? (
+        <p className="invitation-countdown__arrived" role="status">
+          Gracias por compartir este momento tan especial.
         </p>
       ) : (
         <dl className="invitation-countdown__grid">

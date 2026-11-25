@@ -6,9 +6,31 @@ type MusicPlayerProps = {
   variant?: 'card' | 'floating';
 };
 
+export type PlaybackState = 'paused' | 'playing' | 'error' | 'ended';
+
+export function getMusicStatusMessage(
+  playbackState: PlaybackState,
+  hasSource: boolean,
+  unavailableLabel?: string,
+) {
+  if (!hasSource) {
+    return unavailableLabel ?? 'La música se habilitará cuando se cargue el archivo final.';
+  }
+  if (playbackState === 'playing') {
+    return 'La música está sonando.';
+  }
+  if (playbackState === 'error') {
+    return 'No se pudo reproducir la música. Podés intentar nuevamente.';
+  }
+  if (playbackState === 'ended') {
+    return 'La canción terminó.';
+  }
+  return 'La música está en pausa.';
+}
+
 export function MusicPlayer({ music, variant = 'card' }: MusicPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [playbackState, setPlaybackState] = useState<PlaybackState>('paused');
   const [isMuted, setIsMuted] = useState(false);
   const titleId = useId();
 
@@ -17,15 +39,28 @@ export function MusicPlayer({ music, variant = 'card' }: MusicPlayerProps) {
   }
 
   const hasSource = Boolean(music.src);
+  const isPlaying = playbackState === 'playing';
+  const isLooping = music.loop ?? true;
   const title = music.title ?? 'Canción especial';
+  const statusMessage = getMusicStatusMessage(
+    playbackState,
+    hasSource,
+    music.unavailableLabel,
+  );
   const audioElement = hasSource ? (
     <audio
       ref={audioRef}
       src={music.src}
-      loop
+      loop={isLooping}
       preload="none"
-      onPause={() => setIsPlaying(false)}
-      onPlay={() => setIsPlaying(true)}
+      onPause={(event) => {
+        if (!event.currentTarget.ended) {
+          setPlaybackState('paused');
+        }
+      }}
+      onPlay={() => setPlaybackState('playing')}
+      onEnded={() => setPlaybackState('ended')}
+      onError={() => setPlaybackState('error')}
     />
   ) : null;
 
@@ -42,9 +77,10 @@ export function MusicPlayer({ music, variant = 'card' }: MusicPlayerProps) {
     }
 
     try {
+      setPlaybackState('paused');
       await audio.play();
     } catch {
-      setIsPlaying(false);
+      setPlaybackState('error');
     }
   };
 
@@ -76,7 +112,11 @@ export function MusicPlayer({ music, variant = 'card' }: MusicPlayerProps) {
               {hasSource
                 ? isPlaying
                   ? 'Sonando'
-                  : (music.artist ?? 'Lista para sonar')
+                  : playbackState === 'error'
+                    ? 'Error de reproducción'
+                    : playbackState === 'ended'
+                      ? 'Canción finalizada'
+                      : (music.artist ?? 'Lista para sonar')
                 : 'Sin audio disponible'}
             </span>
           </span>
@@ -113,11 +153,7 @@ export function MusicPlayer({ music, variant = 'card' }: MusicPlayerProps) {
           </button>
         )}
         <span className="invitation-sr-only" role="status">
-          {hasSource
-            ? isPlaying
-              ? 'La música está sonando.'
-              : 'La música está en pausa.'
-            : (music.unavailableLabel ?? 'La música se habilitará cuando se cargue el archivo final.')}
+          {statusMessage}
         </span>
       </aside>
     );
@@ -151,9 +187,9 @@ export function MusicPlayer({ music, variant = 'card' }: MusicPlayerProps) {
           {isMuted ? 'Activar sonido' : 'Silenciar'}
         </button>
       </div>
-      {!hasSource ? (
+      {!hasSource || playbackState === 'error' ? (
         <p className="invitation-notice" role="status">
-          {music.unavailableLabel ?? 'La música se habilitará cuando se cargue el archivo final.'}
+          {statusMessage}
         </p>
       ) : null}
     </section>

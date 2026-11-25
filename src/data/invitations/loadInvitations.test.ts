@@ -83,6 +83,21 @@ describe('parseInvitation', () => {
     });
   });
 
+  it('acepta una configuración de reproducción no repetida para música autorizada', () => {
+    const result = parseInvitation({
+      ...validInvitation,
+      features: { ...validInvitation.features, music: true },
+      music: {
+        title: 'Vals autorizado',
+        src: '/assets/invitations/rose-gold/vals.mp3',
+        loop: false,
+      },
+    });
+
+    expect(result.errors).toEqual([]);
+    expect(result.invitation?.music).toMatchObject({ loop: false });
+  });
+
   it('rechaza features habilitadas sin la configuración requerida', () => {
     const result = parseInvitation({
       ...validInvitation,

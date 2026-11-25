@@ -305,10 +305,15 @@ function parseMusic(value: unknown, errors: string[]): InvitationMusic | undefin
   const title = getOptionalString(value.title, 'music.title', errors);
   const artist = getOptionalString(value.artist, 'music.artist', errors);
   const unavailableLabel = getOptionalString(value.unavailableLabel, 'music.unavailableLabel', errors);
+  const loop = value.loop;
+  if (loop !== undefined && typeof loop !== 'boolean') {
+    errors.push('music.loop debe ser booleano.');
+  }
   return {
     ...(src ? { src } : {}),
     ...(title ? { title } : {}),
     ...(artist ? { artist } : {}),
+    ...(typeof loop === 'boolean' ? { loop } : {}),
     ...(unavailableLabel ? { unavailableLabel } : {}),
   };
 }

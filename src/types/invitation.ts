@@ -62,6 +62,7 @@ export type InvitationMusic = {
   title?: string;
   artist?: string;
   src?: string;
+  loop?: boolean;
   unavailableLabel?: string;
 };
 
