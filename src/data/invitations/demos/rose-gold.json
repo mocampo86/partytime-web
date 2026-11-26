@@ -7,13 +7,13 @@
     "hostName": "Guadalupe",
     "subtitle": "Una noche para celebrar y guardar para siempre",
     "eventType": "Cumpleaños de XV",
-    "date": "2026-11-28",
+    "date": "2027-01-16",
     "time": "21:00",
     "utcOffset": "-03:00",
-    "venueName": "Salón Dorado",
-    "locationLabel": "Maldonado, Uruguay",
-    "mapsUrl": "https://maps.google.com/?q=Maldonado%2C%20Uruguay",
-    "notes": "Los datos de esta invitación son ficticios y se usan solo para demostración."
+    "venueName": "Salón Aurora (demostración)",
+    "locationLabel": "Punta del Este, Uruguay",
+    "mapsUrl": "https://maps.google.com/?q=Punta%20del%20Este%2C%20Uruguay",
+    "notes": "Esta es una invitación de demostración: el nombre, la fecha y el lugar son ficticios y no corresponden a un evento real."
   },
   "theme": {
     "accentColor": "#b76e79",
@@ -41,22 +41,34 @@
     "title": "Momentos que anticipan la noche",
     "images": [
       {
-        "src": "/assets/invitations/rose-gold/gallery-01.svg",
-        "alt": "Ilustración editorial de una quinceañera con marco dorado",
+        "src": "/assets/invitations/rose-gold/hero-900x1200.webp",
+        "srcSet": "/assets/invitations/rose-gold/hero-900x1200.webp 900w, /assets/invitations/rose-gold/hero-1800x2400.webp 1800w",
+        "sizes": "(min-width: 48rem) 34vw, 78vw",
+        "alt": "Retrato de quinceañera ficticia con vestido rosa y tiara en jardín iluminado al atardecer.",
+        "objectPosition": "50% 42%",
         "width": 900,
         "height": 1200
       },
       {
-        "src": "/assets/invitations/rose-gold/gallery-02.svg",
-        "alt": "Ilustración editorial de una mesa de XV años con detalles dorados",
-        "width": 900,
-        "height": 1200
+        "src": "/assets/invitations/rose-gold/full-body.webp",
+        "alt": "Quinceañera ficticia con vestido rosa largo posando en un jardín con flores.",
+        "objectPosition": "50% 50%",
+        "width": 1200,
+        "height": 1600
       },
       {
-        "src": "/assets/invitations/rose-gold/gallery-03.svg",
-        "alt": "Ilustración editorial de un vals sobre fondo rosa oscuro",
-        "width": 900,
-        "height": 1200
+        "src": "/assets/invitations/rose-gold/details.webp",
+        "alt": "Pastel de celebración y rosas en tonos rosados con velas decorativas.",
+        "objectPosition": "50% 50%",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/assets/invitations/rose-gold/venue.webp",
+        "alt": "Salón de fiesta elegante con mesas, flores rosas e iluminación cálida.",
+        "objectPosition": "50% 50%",
+        "width": 1200,
+        "height": 1600
       }
     ]
   },
@@ -68,7 +80,7 @@
   "rsvp": {
     "title": "Confirmá tu asistencia",
     "description": "Demostración visual: las respuestas no se guardan ni se envían.",
-    "deadline": "2026-11-01",
+    "deadline": "2026-12-20",
     "fields": ["name", "attendance", "companions", "message"]
   },
   "content": {
@@ -80,6 +92,6 @@
     "description": "Demostración ficticia de una invitación digital personalizada.",
     "openGraphTitle": "Demo de invitación digital de XV años",
     "openGraphDescription": "Demostración ficticia de una invitación digital PartyTime.",
-    "openGraphImage": "/assets/invitations/rose-gold/preview.svg"
+    "openGraphImage": "/assets/invitations/rose-gold/social-preview-1200x630.webp"
   }
 }

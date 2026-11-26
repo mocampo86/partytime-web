@@ -80,7 +80,7 @@ export function InvitationOpening({
       setStatus('open');
     };
     const prefersReducedMotion =
-      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+      window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
 
     if (!overlay || prefersReducedMotion) {
       finishOpening();
@@ -119,7 +119,7 @@ export function InvitationOpening({
 
     const elements = Array.from(content.querySelectorAll<HTMLElement>(revealSelector));
     const prefersReducedMotion =
-      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+      window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
     const showElement = (element: Element) => {
       element.classList.add('invitation-reveal--visible');
     };

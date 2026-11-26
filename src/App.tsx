@@ -53,7 +53,7 @@ const catalogMetadata: PageMetadata = {
   openGraphTitle: 'Invitaciones Digitales Personalizadas | PartyTime',
   openGraphDescription:
     'Descubrí templates premium para transformar la información de tu evento en una experiencia digital memorable.',
-  openGraphImage: '/assets/invitations/rose-gold/preview.svg',
+  openGraphImage: '/assets/invitations/rose-gold/social-preview-1200x630.webp',
 };
 
 const invitationNotFoundMetadata: PageMetadata = {

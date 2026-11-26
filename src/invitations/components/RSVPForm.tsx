@@ -1,7 +1,8 @@
-import { useState, type FormEvent } from 'react';
+import { useId, useState, type FormEvent } from 'react';
 import type { InvitationRSVPConfig } from '../../types/invitation';
 
 export function RSVPForm({ config }: { config?: InvitationRSVPConfig }) {
+  const titleId = useId();
   const [status, setStatus] = useState<string | null>(null);
   const fields = new Set(config?.fields ?? ['name', 'attendance', 'message']);
 
@@ -11,9 +12,9 @@ export function RSVPForm({ config }: { config?: InvitationRSVPConfig }) {
   };
 
   return (
-    <section className="invitation-card invitation-rsvp" aria-labelledby="invitation-rsvp-title">
+    <section className="invitation-card invitation-rsvp" aria-labelledby={titleId}>
       <p className="invitation-eyebrow">RSVP</p>
-      <h2 id="invitation-rsvp-title">{config?.title ?? 'Confirmá tu asistencia'}</h2>
+      <h2 id={titleId}>{config?.title ?? 'Confirmá tu asistencia'}</h2>
       <p>{config?.description ?? 'Esta sección muestra la experiencia prevista de confirmación.'}</p>
       <p className="invitation-notice" role="note">
         Servicio simulado: ninguna respuesta se guarda ni se envía en esta fase.

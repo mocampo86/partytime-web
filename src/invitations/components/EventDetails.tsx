@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useId, type ReactNode } from 'react';
 import type { InvitationEvent } from '../../types/invitation';
 
 export function formatInvitationDate(value: string) {
@@ -18,14 +18,15 @@ type EventDetailsProps = {
 };
 
 export function EventDetails({ event, children }: EventDetailsProps) {
+  const titleId = useId();
   const hasVenue = Boolean(event.venueName || event.locationLabel);
 
   return (
-    <section className="invitation-card invitation-details" aria-labelledby="invitation-details-title">
+    <section className="invitation-card invitation-details" aria-labelledby={titleId}>
       <div className="invitation-details__grid">
         <div>
           <p className="invitation-eyebrow">{event.eventType}</p>
-          <h2 id="invitation-details-title">
+          <h2 id={titleId}>
             <time dateTime={event.date}>{formatInvitationDate(event.date)}</time>
           </h2>
           {event.time ? (

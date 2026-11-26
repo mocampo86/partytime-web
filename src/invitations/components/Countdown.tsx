@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useState } from 'react';
 
 type CountdownProps = {
   date: string;
@@ -50,6 +50,7 @@ export function getCountdownParts(target: Date, now: Date) {
 }
 
 export function Countdown({ date, time, utcOffset, title = 'Cuenta regresiva' }: CountdownProps) {
+  const titleId = useId();
   const target = useMemo(() => getCountdownTarget(date, time, utcOffset), [date, time, utcOffset]);
   const [now, setNow] = useState(() => new Date());
   const parts = getCountdownParts(target, now);
@@ -61,15 +62,20 @@ export function Countdown({ date, time, utcOffset, title = 'Cuenta regresiva' }:
       return;
     }
 
-    const interval = window.setInterval(() => {
-      const nextNow = new Date();
-      setNow(nextNow);
-      if (getCountdownState(date, utcOffset, nextNow) === 'past') {
-        window.clearInterval(interval);
-      }
-    }, 1000);
+    let timer = 0;
+    const scheduleTick = () => {
+      const delay = getCountdownState(date, utcOffset) === 'future' ? 1_000 : 60_000;
+      timer = window.setTimeout(() => {
+        const nextNow = new Date();
+        setNow(nextNow);
+        if (getCountdownState(date, utcOffset, nextNow) !== 'past') {
+          scheduleTick();
+        }
+      }, delay);
+    };
+    scheduleTick();
 
-    return () => window.clearInterval(interval);
+    return () => window.clearTimeout(timer);
   }, [date, target, utcOffset]);
 
   return (
@@ -77,10 +83,10 @@ export function Countdown({ date, time, utcOffset, title = 'Cuenta regresiva' }:
       className={`invitation-card invitation-countdown${
         countdownState === 'future' ? '' : ` invitation-countdown--${countdownState}`
       }`}
-      aria-labelledby="invitation-countdown-title"
+      aria-labelledby={titleId}
     >
       <p className="invitation-eyebrow">Falta poco</p>
-      <h2 id="invitation-countdown-title">
+      <h2 id={titleId}>
         {countdownState === 'event-day'
           ? 'Llegó el gran día'
           : countdownState === 'past'
