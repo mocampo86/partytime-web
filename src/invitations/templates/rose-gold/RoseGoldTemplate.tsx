@@ -1,5 +1,5 @@
 import './rose-gold.css';
-import type { CSSProperties } from 'react';
+import { useId, type CSSProperties } from 'react';
 import type { InvitationTemplateProps } from '../../../types/invitation';
 import { AccommodationInfo } from '../../components/AccommodationInfo';
 import { CollaborativePlaylist } from '../../components/CollaborativePlaylist';
@@ -17,6 +17,7 @@ import { ShareInvitation } from '../../components/ShareInvitation';
 import { TransportInfo } from '../../components/TransportInfo';
 
 export default function RoseGoldTemplate({ invitation, isDemo = false }: InvitationTemplateProps) {
+  const titleId = useId();
   const { event, features, content } = invitation;
   const themeStyles = {
     '--invitation-accent': invitation.theme?.accentColor,
@@ -35,7 +36,7 @@ export default function RoseGoldTemplate({ invitation, isDemo = false }: Invitat
     (features.gifts && Boolean(content?.giftInfo));
 
   const contentSections = (
-    <article className="rose-gold" style={themeStyles} aria-labelledby="rose-gold-title">
+    <article className="rose-gold" style={themeStyles} aria-labelledby={titleId}>
       {features.music ? <MusicPlayer music={invitation.music} variant="floating" /> : null}
 
       <header className="rose-gold__hero invitation-reveal">
@@ -57,7 +58,7 @@ export default function RoseGoldTemplate({ invitation, isDemo = false }: Invitat
         ) : null}
         <div className="rose-gold__hero-copy">
           <p className="invitation-eyebrow">{event.eventType}</p>
-          <h1 id="rose-gold-title">
+          <h1 id={titleId}>
             <span className="rose-gold__title">{event.title}</span>
             <span className="rose-gold__host">{event.hostName}</span>
           </h1>

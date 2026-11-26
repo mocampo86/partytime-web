@@ -64,6 +64,7 @@ describe('RoseGoldTemplate', () => {
     expect(markup).toContain('rose-gold__portrait');
     expect(markup).toContain('fetchPriority="high"');
     expect(markup).toContain('loading="lazy"');
+    expect(markup).toContain('invitation-gallery__item--featured');
     expect(markup.match(/<figure class="invitation-gallery__item/g)).toHaveLength(3);
   });
 
