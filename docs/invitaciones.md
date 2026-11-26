@@ -79,7 +79,7 @@ La demo comercial usa imágenes WebP servidas desde `public/assets/invitations/r
 - `social-preview-1200x630.webp` — preview del catálogo y metadata social.
 - `gallery-01..03.svg` y `preview.svg` — placeholders anteriores conservados como respaldo.
 
-Procedencia: las imágenes fueron generadas con OpenAI ImageGen para esta demo y no representan personas ni eventos reales. El manifiesto de origen con dimensiones, textos alternativos y posiciones sugeridas vive en `src/assets/rose-gold/` (`manifest.json` y `README.md`). El uso queda sujeto a los términos aplicables de OpenAI; no hay licencia de terceros ni garantía de exclusividad.
+Procedencia: las imágenes fueron generadas con OpenAI ImageGen para esta demo y no representan personas ni eventos reales. Existe una única copia versionada en `public/assets/invitations/rose-gold/`; el manifiesto de origen con dimensiones, textos alternativos y posiciones sugeridas vive en `src/assets/rose-gold/` (`manifest.json` y `README.md`). El uso queda sujeto a los términos aplicables de OpenAI; no hay licencia de terceros ni garantía de exclusividad.
 
 Para reemplazar o ampliar la galería: agregar los archivos optimizados en `public/assets/invitations/rose-gold/`, referenciarlos con rutas que comiencen en `/` en los JSON y completar `width`/`height` para evitar saltos de layout, más `srcSet`/`sizes`/`objectPosition` cuando corresponda. La primera imagen de `gallery.images` es siempre el retrato hero (carga prioritaria); el resto forma la galería editorial (carga diferida). No incorporar fotografías de clientes ni canciones comerciales sin autorización documentada.
 

@@ -7,7 +7,7 @@ export const invitationTemplates: readonly InvitationTemplate[] = [
     id: 'rose-gold',
     name: 'Rose Gold',
     description:
-      'Una experiencia premium para XV años con portada animada, retrato protagonista, cuenta regresiva, galería editorial, música opcional y confirmación de asistencia.',
+      'Una experiencia premium para XV años con portada animada, retrato protagonista, cuenta regresiva, galería editorial y música opcional. Explorá también una demostración de la confirmación digital de asistencia.',
     category: 'xv-anos',
     categoryLabel: 'XV años',
     recommendedFor:
